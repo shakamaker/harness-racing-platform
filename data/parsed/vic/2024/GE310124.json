@@ -1,0 +1,2636 @@
+{
+  "meeting_code": "GE310124",
+  "track_name": "Geelong",
+  "state": "vic",
+  "meeting_date": "2024-01-31",
+  "day_night": "NIGHT",
+  "races": [
+    {
+      "race_number": 1,
+      "race_name": "HARAS DES TROTTEURS TROT (1ST HEAT)",
+      "race_time": "5:45pm",
+      "race_distance_m": 2100,
+      "race_type": "NR",
+      "class_name": "NR up to 45",
+      "age_class": null,
+      "race_purse": 4500.0,
+      "start_type": "Mobile",
+      "race_gait": "TROTTERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "161:700",
+        "gross_time_s": 161.7,
+        "lead_time_display": "36:600",
+        "lead_time_s": 36.6,
+        "mile_rate_display": "123:900",
+        "mile_rate_s": 123.9,
+        "q1_display": "33:100",
+        "q1_s": 33.1,
+        "q2_display": "32:100",
+        "q2_s": 32.1,
+        "q3_display": "29:600",
+        "q3_s": 29.6,
+        "q4_display": "30:300",
+        "q4_s": 30.3,
+        "first_half_s": 65.2,
+        "second_half_s": 59.9,
+        "margin1": 4.4,
+        "margin2": 3.6
+      },
+      "runners": [
+        {
+          "horse_id": 800955,
+          "horse_name": "ROCKFORD PEACH",
+          "runner_number": 7,
+          "barrier_raw": "Fr7",
+          "barrier": 7,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 2250.0,
+          "raw_price": "$ 3.00 fav",
+          "starting_price": 3.0,
+          "trainer_name": "Lisa Miles",
+          "trainer_link_token": "851869BB373B36D1E055005E00000019",
+          "driver_name": "Lisa Miles",
+          "driver_link_token": "851869BB373B36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "HISU",
+              "CODM",
+              "RAS",
+              "2",
+              "SWAB"
+            ],
+            "full_text": "hung in score up, continue ODM, restrained after start, outside leader at bell, swabbed"
+          }
+        },
+        {
+          "horse_id": 816884,
+          "horse_name": "XIAOBO",
+          "runner_number": 5,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 2,
+          "raw_margin": "4.40",
+          "adjusted_margin": 4.4,
+          "null_run": false,
+          "scratched": false,
+          "stake": 700.0,
+          "raw_price": "$ 11.00",
+          "starting_price": 11.0,
+          "trainer_name": "David Murphy",
+          "trainer_link_token": "851869BBA46336D1E055005E00000019",
+          "driver_name": "David Murphy",
+          "driver_link_token": "851869BBA46336D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "L",
+              "1"
+            ],
+            "full_text": "gate speed, led, leader at bell"
+          }
+        },
+        {
+          "horse_id": 805986,
+          "horse_name": "BELLMAC BAMBI",
+          "runner_number": 3,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 3,
+          "raw_margin": "8.00",
+          "adjusted_margin": 8.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 460.0,
+          "raw_price": "$ 3.60",
+          "starting_price": 3.6,
+          "trainer_name": "Glenn Sharp",
+          "trainer_link_token": "851869BCBECB36D1E055005E00000019",
+          "driver_name": "Josh Duggan",
+          "driver_link_token": "851869BD127C36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "3"
+            ],
+            "full_text": "gate speed, behind leader at bell"
+          }
+        },
+        {
+          "horse_id": 811827,
+          "horse_name": "SURPRISE TO ME",
+          "runner_number": 1,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 4,
+          "raw_margin": "13.30",
+          "adjusted_margin": 13.3,
+          "null_run": false,
+          "scratched": false,
+          "stake": 250.0,
+          "raw_price": "$ 7.50",
+          "starting_price": 7.5,
+          "trainer_name": "Rory Coverdale",
+          "trainer_link_token": "851869C1689436D1E055005E00000019",
+          "driver_name": "Rory Coverdale",
+          "driver_link_token": "851869C1689436D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "5"
+            ],
+            "full_text": "3 back on pegs at bell"
+          }
+        },
+        {
+          "horse_id": 813215,
+          "horse_name": "KYVALLEY SURFRIDER NZ",
+          "runner_number": 4,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 5,
+          "raw_margin": "17.30",
+          "adjusted_margin": 17.3,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 4.80",
+          "starting_price": 4.8,
+          "trainer_name": "Katrina Fitzpatrick",
+          "trainer_link_token": "851869BB2D2836D1E055005E00000019",
+          "driver_name": "Michael Bellman",
+          "driver_link_token": "851869BB1B8736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "6"
+            ],
+            "full_text": "1 out 2 back at bell"
+          }
+        },
+        {
+          "horse_id": 817968,
+          "horse_name": "KARAS DREAM",
+          "runner_number": 6,
+          "barrier_raw": "Fr6",
+          "barrier": 6,
+          "finish_position": 6,
+          "raw_margin": "18.80",
+          "adjusted_margin": 18.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 15.00",
+          "starting_price": 15.0,
+          "trainer_name": "Craig Demmler",
+          "trainer_link_token": "851869BB8DEB36D1E055005E00000019",
+          "driver_name": "Craig Demmler",
+          "driver_link_token": "851869BB8DEB36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "INCSU",
+              "OPS",
+              "NAT",
+              "RAS",
+              "4"
+            ],
+            "full_text": "inconvenienced score up, out of position at start, no action taken, restrained after start, 1 out 1 back at bell"
+          }
+        },
+        {
+          "horse_id": 820389,
+          "horse_name": "MACHO MAORI",
+          "runner_number": 2,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 7,
+          "raw_margin": "124.40",
+          "adjusted_margin": 124.4,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 8.50",
+          "starting_price": 8.5,
+          "trainer_name": "Brian Kiesey",
+          "trainer_link_token": "851869BB789036D1E055005E00000019",
+          "driver_name": "Brian Gath",
+          "driver_link_token": "851869BB642936D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "BSU",
+              "OPS",
+              "ODM",
+              "TF",
+              "17"
+            ],
+            "full_text": "broke in score up, out of position at start, out of draw mobile starts, trailed field, tailed off at bell"
+          }
+        }
+      ]
+    },
+    {
+      "race_number": 2,
+      "race_name": "BARWON FM PACE",
+      "race_time": "6:14pm",
+      "race_distance_m": 1609,
+      "race_type": "NR",
+      "class_name": "NR up to 50",
+      "age_class": null,
+      "race_purse": 6000.0,
+      "start_type": "Mobile",
+      "race_gait": "PACERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "117:200",
+        "gross_time_s": 117.2,
+        "lead_time_display": null,
+        "lead_time_s": null,
+        "mile_rate_display": "117:200",
+        "mile_rate_s": 117.2,
+        "q1_display": "28:000",
+        "q1_s": 28.0,
+        "q2_display": "30:400",
+        "q2_s": 30.4,
+        "q3_display": "29:300",
+        "q3_s": 29.3,
+        "q4_display": "29:500",
+        "q4_s": 29.5,
+        "first_half_s": 58.4,
+        "second_half_s": 58.8,
+        "margin1": 2.1,
+        "margin2": 1.6
+      },
+      "runners": [
+        {
+          "horse_id": 825872,
+          "horse_name": "LOCHINVAR CAMILA",
+          "runner_number": 4,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 3420.0,
+          "raw_price": "$ 1.65 fav",
+          "starting_price": 1.65,
+          "trainer_name": "Jess Tubbs",
+          "trainer_link_token": "851869BCBD3B36D1E055005E00000019",
+          "driver_name": "Greg Sugars",
+          "driver_link_token": "851869BB9E6D36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "OLT",
+              "2",
+              "HI",
+              "SWAB"
+            ],
+            "full_text": "gate speed, outside leader throughout, outside leader at bell, hung in, swabbed"
+          }
+        },
+        {
+          "horse_id": 827635,
+          "horse_name": "MARY AUSTIN NZ",
+          "runner_number": 2,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 2,
+          "raw_margin": "2.10",
+          "adjusted_margin": 2.1,
+          "null_run": false,
+          "scratched": false,
+          "stake": 900.0,
+          "raw_price": "$ 17.00",
+          "starting_price": 17.0,
+          "trainer_name": "Zac Steenhuis",
+          "trainer_link_token": "851869C0F54A36D1E055005E00000019",
+          "driver_name": "Jack Laugher",
+          "driver_link_token": "851869C149D436D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "L",
+              "1",
+              "PH"
+            ],
+            "full_text": "gate speed, led, leader at bell, pulled hard"
+          }
+        },
+        {
+          "horse_id": 790391,
+          "horse_name": "OSCAR BRAVO",
+          "runner_number": 9,
+          "barrier_raw": "Sr2",
+          "barrier": 2,
+          "finish_position": 3,
+          "raw_margin": "3.70",
+          "adjusted_margin": 3.7,
+          "null_run": false,
+          "scratched": false,
+          "stake": 600.0,
+          "raw_price": "$ 21.00",
+          "starting_price": 21.0,
+          "trainer_name": "John Murphy",
+          "trainer_link_token": "851869BB871736D1E055005E00000019",
+          "driver_name": "Declan Murphy",
+          "driver_link_token": "851869C1353D36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "PRS",
+              "6",
+              "HUE",
+              "USL",
+              "QUER"
+            ],
+            "full_text": "pre race swab, 1 out 2 back at bell, held up early, used sprint lane, run queried"
+          }
+        },
+        {
+          "horse_id": 822473,
+          "horse_name": "INEXORABLE",
+          "runner_number": 5,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 4,
+          "raw_margin": "4.00",
+          "adjusted_margin": 4.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 300.0,
+          "raw_price": "$ 13.00",
+          "starting_price": 13.0,
+          "trainer_name": "E Brosnan, R J Brosnan",
+          "trainer_link_token": "851869C1705336D1E055005E00000019",
+          "driver_name": "Emmett Brosnan",
+          "driver_link_token": "851869BCFC4736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "RAS",
+              "10"
+            ],
+            "full_text": "restrained after start, 1 out 4 back at bell"
+          }
+        },
+        {
+          "horse_id": 820520,
+          "horse_name": "BLACK TUXEDO",
+          "runner_number": 11,
+          "barrier_raw": "Sr3",
+          "barrier": 3,
+          "finish_position": 5,
+          "raw_margin": "4.30",
+          "adjusted_margin": 4.3,
+          "null_run": false,
+          "scratched": false,
+          "stake": 180.0,
+          "raw_price": "$ 21.00",
+          "starting_price": 21.0,
+          "trainer_name": "Charlie Borg",
+          "trainer_link_token": "851869BB309936D1E055005E00000019",
+          "driver_name": "Charlie Borg",
+          "driver_link_token": "851869BB309936D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "8"
+            ],
+            "full_text": "1 out 3 back at bell"
+          }
+        },
+        {
+          "horse_id": 818394,
+          "horse_name": "BEACH HEAVEN",
+          "runner_number": 6,
+          "barrier_raw": "Fr6",
+          "barrier": 6,
+          "finish_position": 6,
+          "raw_margin": "5.90",
+          "adjusted_margin": 5.9,
+          "null_run": false,
+          "scratched": false,
+          "stake": 120.0,
+          "raw_price": "$ 23.00",
+          "starting_price": 23.0,
+          "trainer_name": "David Murphy",
+          "trainer_link_token": "851869BBA46336D1E055005E00000019",
+          "driver_name": "David Murphy",
+          "driver_link_token": "851869BBA46336D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "4"
+            ],
+            "full_text": "1 out 1 back at bell"
+          }
+        },
+        {
+          "horse_id": 819150,
+          "horse_name": "OTIS RISING",
+          "runner_number": 8,
+          "barrier_raw": "Sr1",
+          "barrier": 1,
+          "finish_position": 7,
+          "raw_margin": "7.20",
+          "adjusted_margin": 7.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 120.0,
+          "raw_price": "$ 16.00",
+          "starting_price": 16.0,
+          "trainer_name": "Lisa Miles",
+          "trainer_link_token": "851869BB373B36D1E055005E00000019",
+          "driver_name": "Lisa Miles",
+          "driver_link_token": "851869BB373B36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "7",
+              "INC"
+            ],
+            "full_text": "4 back on the pegs at bell, inconvenienced"
+          }
+        },
+        {
+          "horse_id": 822011,
+          "horse_name": "I KNEW NOT WHERE",
+          "runner_number": 3,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 8,
+          "raw_margin": "9.30",
+          "adjusted_margin": 9.3,
+          "null_run": false,
+          "scratched": false,
+          "stake": 120.0,
+          "raw_price": "$ 61.00",
+          "starting_price": 61.0,
+          "trainer_name": "David Murphy",
+          "trainer_link_token": "851869BBA46336D1E055005E00000019",
+          "driver_name": "Brent Murphy",
+          "driver_link_token": "851869C1452636D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "3"
+            ],
+            "full_text": "gate speed, behind leader at bell"
+          }
+        },
+        {
+          "horse_id": 821572,
+          "horse_name": "PLAY ALTO",
+          "runner_number": 1,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 9,
+          "raw_margin": "23.00",
+          "adjusted_margin": 23.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 120.0,
+          "raw_price": "$ 3.90",
+          "starting_price": 3.9,
+          "trainer_name": "Matthew Craven",
+          "trainer_link_token": "851869BC9B5E36D1E055005E00000019",
+          "driver_name": "Matthew Craven",
+          "driver_link_token": "851869BC9B5E36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "5",
+              "BX2",
+              "SD1T"
+            ],
+            "full_text": "3 back on pegs at bell, broke twice in running, stood down 1 trial"
+          }
+        }
+      ]
+    },
+    {
+      "race_number": 3,
+      "race_name": "HOYTS FOOD 3YO & OLDER MAIDEN PACE",
+      "race_time": "6:47pm",
+      "race_distance_m": 2100,
+      "race_type": "RBD",
+      "class_name": null,
+      "age_class": "3YO and older",
+      "race_purse": 7000.0,
+      "start_type": "Mobile",
+      "race_gait": "PACERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "156:500",
+        "gross_time_s": 156.5,
+        "lead_time_display": "36:900",
+        "lead_time_s": 36.9,
+        "mile_rate_display": "119:900",
+        "mile_rate_s": 119.9,
+        "q1_display": "29:100",
+        "q1_s": 29.1,
+        "q2_display": "29:900",
+        "q2_s": 29.9,
+        "q3_display": "29:200",
+        "q3_s": 29.2,
+        "q4_display": "31:400",
+        "q4_s": 31.4,
+        "first_half_s": 59.0,
+        "second_half_s": 60.6,
+        "margin1": 3.6,
+        "margin2": 6.3
+      },
+      "runners": [
+        {
+          "horse_id": 820396,
+          "horse_name": "KEAYANG JIGSAW",
+          "runner_number": 6,
+          "barrier_raw": "Fr6",
+          "barrier": 6,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 3990.0,
+          "raw_price": "$ 2.60",
+          "starting_price": 2.6,
+          "trainer_name": "Margaret Lee",
+          "trainer_link_token": "851869BB73AC36D1E055005E00000019",
+          "driver_name": "Lochie Cook",
+          "driver_link_token": "851869C15DAD36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "3WE",
+              "WF",
+              "L",
+              "1",
+              "SWAB"
+            ],
+            "full_text": "3 wide early, worked forward, led, leader at bell, swabbed"
+          }
+        },
+        {
+          "horse_id": 825724,
+          "horse_name": "BLUE MIKI",
+          "runner_number": 9,
+          "barrier_raw": "Sr2",
+          "barrier": 2,
+          "finish_position": 2,
+          "raw_margin": "3.60",
+          "adjusted_margin": 3.6,
+          "null_run": false,
+          "scratched": false,
+          "stake": 1050.0,
+          "raw_price": "$ 11.00",
+          "starting_price": 11.0,
+          "trainer_name": "David Murphy",
+          "trainer_link_token": "851869BBA46336D1E055005E00000019",
+          "driver_name": "David Murphy",
+          "driver_link_token": "851869BBA46336D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "T/CLDC",
+              "INC",
+              "D/FWA"
+            ],
+            "full_text": "inconvenienced, driver fined whip action"
+          }
+        },
+        {
+          "horse_id": 812910,
+          "horse_name": "ROCKIN CHARMER",
+          "runner_number": 5,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 3,
+          "raw_margin": "9.90",
+          "adjusted_margin": 9.9,
+          "null_run": false,
+          "scratched": false,
+          "stake": 700.0,
+          "raw_price": "$ 101.00",
+          "starting_price": 101.0,
+          "trainer_name": "Nicholas O'Connor",
+          "trainer_link_token": "851869C14FD636D1E055005E00000019",
+          "driver_name": "Nicholas O'Connor",
+          "driver_link_token": "851869C14FD636D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "RAS",
+              "11"
+            ],
+            "full_text": "restrained after start, 6 back on the pegs at bell"
+          }
+        },
+        {
+          "horse_id": 825794,
+          "horse_name": "ODIN",
+          "runner_number": 2,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 4,
+          "raw_margin": "13.20",
+          "adjusted_margin": 13.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 350.0,
+          "raw_price": "$ 2.10 fav",
+          "starting_price": 2.1,
+          "trainer_name": "Jess Tubbs",
+          "trainer_link_token": "851869BCBD3B36D1E055005E00000019",
+          "driver_name": "Greg Sugars",
+          "driver_link_token": "851869BB9E6D36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "5",
+              "HI",
+              "B",
+              "LCRT",
+              "HIUP"
+            ],
+            "full_text": "3 back on pegs at bell, hung in, broke, last chance to race truly, hung in under pressure"
+          }
+        },
+        {
+          "horse_id": 819303,
+          "horse_name": "SIR NIPPA",
+          "runner_number": 4,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 5,
+          "raw_margin": "22.40",
+          "adjusted_margin": 22.4,
+          "null_run": false,
+          "scratched": false,
+          "stake": 210.0,
+          "raw_price": "$ 12.00",
+          "starting_price": 12.0,
+          "trainer_name": "John Murphy",
+          "trainer_link_token": "851869BB871736D1E055005E00000019",
+          "driver_name": "Declan Murphy",
+          "driver_link_token": "851869C1353D36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "2"
+            ],
+            "full_text": "outside leader at bell"
+          }
+        },
+        {
+          "horse_id": 820686,
+          "horse_name": "BOZANARROW",
+          "runner_number": 7,
+          "barrier_raw": "Fr7",
+          "barrier": 7,
+          "finish_position": 6,
+          "raw_margin": "39.50",
+          "adjusted_margin": 39.5,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 41.00",
+          "starting_price": 41.0,
+          "trainer_name": "Basil Dooley",
+          "trainer_link_token": "851869BB51A036D1E055005E00000019",
+          "driver_name": "James Herbertson",
+          "driver_link_token": "851869C1595636D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "RAS",
+              "6"
+            ],
+            "full_text": "restrained after start, 1 out 2 back at bell"
+          }
+        },
+        {
+          "horse_id": 816443,
+          "horse_name": "PAD THAI",
+          "runner_number": 3,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 7,
+          "raw_margin": "43.40",
+          "adjusted_margin": 43.4,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 8.50",
+          "starting_price": 8.5,
+          "trainer_name": "Amy Day",
+          "trainer_link_token": "851869BF5CD736D1E055005E00000019",
+          "driver_name": "Amy Day",
+          "driver_link_token": "851869BF5CD736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "L",
+              "SLM",
+              "3",
+              "GG",
+              "QUER",
+              "VXAR",
+              "FUR"
+            ],
+            "full_text": "gate speed, led, surrendered lead middle, behind leader at bell, Gave ground over concluding stages, run queried, vets examination after race, Follow Up Report, Follow Up Report"
+          }
+        },
+        {
+          "horse_id": 826446,
+          "horse_name": "SCATTERSHOT",
+          "runner_number": 8,
+          "barrier_raw": "Sr1",
+          "barrier": 1,
+          "finish_position": 8,
+          "raw_margin": "47.20",
+          "adjusted_margin": 47.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 71.00",
+          "starting_price": 71.0,
+          "trainer_name": "Jodi Quinlan",
+          "trainer_link_token": "851869BB79D736D1E055005E00000019",
+          "driver_name": "Josh Duggan",
+          "driver_link_token": "851869BD127C36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "9",
+              "INC"
+            ],
+            "full_text": "5 back on the pegs at bell, inconvenienced, inconvenienced"
+          }
+        },
+        {
+          "horse_id": 823833,
+          "horse_name": "CARRAMAR BULLOCK",
+          "runner_number": 1,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 9,
+          "raw_margin": "95.60",
+          "adjusted_margin": 95.6,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 71.00",
+          "starting_price": 71.0,
+          "trainer_name": "Robert McCartney",
+          "trainer_link_token": "851869BB68DE36D1E055005E00000019",
+          "driver_name": "Jason Lee",
+          "driver_link_token": "851869BCA7E736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "7",
+              "TIRE",
+              "LCRC"
+            ],
+            "full_text": "4 back on the pegs at bell, tired latter stages, last chance to race competitively"
+          }
+        }
+      ]
+    },
+    {
+      "race_number": 4,
+      "race_name": "EVOLUTION LODGE TROTTERS HANDICAP",
+      "race_time": "7:13pm",
+      "race_distance_m": 2100,
+      "race_type": "NR",
+      "class_name": "NR 52 or better",
+      "age_class": null,
+      "race_purse": 7000.0,
+      "start_type": "Standing Start",
+      "race_gait": "TROTTERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "162:300",
+        "gross_time_s": 162.3,
+        "lead_time_display": "40:500",
+        "lead_time_s": 40.5,
+        "mile_rate_display": "124:400",
+        "mile_rate_s": 124.4,
+        "q1_display": "31:100",
+        "q1_s": 31.1,
+        "q2_display": "31:400",
+        "q2_s": 31.4,
+        "q3_display": "29:400",
+        "q3_s": 29.4,
+        "q4_display": "29:900",
+        "q4_s": 29.9,
+        "first_half_s": 62.5,
+        "second_half_s": 59.3,
+        "margin1": 1.2,
+        "margin2": 8.5
+      },
+      "runners": [
+        {
+          "horse_id": 809287,
+          "horse_name": "HOMONYM NZ",
+          "runner_number": 5,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 3990.0,
+          "raw_price": "$ 26.00",
+          "starting_price": 26.0,
+          "trainer_name": "E Brosnan, R J Brosnan",
+          "trainer_link_token": "851869C1705336D1E055005E00000019",
+          "driver_name": "Emmett Brosnan",
+          "driver_link_token": "851869BCFC4736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "L",
+              "1",
+              "SWAB"
+            ],
+            "full_text": "led, leader at bell, swabbed"
+          }
+        },
+        {
+          "horse_id": 815243,
+          "horse_name": "INMYDREAMS",
+          "runner_number": 4,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 2,
+          "raw_margin": "1.20",
+          "adjusted_margin": 1.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 1050.0,
+          "raw_price": "$ 1.80 fav",
+          "starting_price": 1.8,
+          "trainer_name": "Joe Borg",
+          "trainer_link_token": "851869BB97EE36D1E055005E00000019",
+          "driver_name": "Charlie Borg",
+          "driver_link_token": "851869BB309936D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "2"
+            ],
+            "full_text": "outside leader at bell"
+          }
+        },
+        {
+          "horse_id": 816263,
+          "horse_name": "YOU NO ILL BE LATE",
+          "runner_number": 6,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 3,
+          "raw_margin": "9.70",
+          "adjusted_margin": 9.7,
+          "null_run": false,
+          "scratched": false,
+          "stake": 700.0,
+          "raw_price": "$ 10.00",
+          "starting_price": 10.0,
+          "trainer_name": "David Miles",
+          "trainer_link_token": "851869BB8DA036D1E055005E00000019",
+          "driver_name": "Nick Beale",
+          "driver_link_token": "851869C12F2536D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "6"
+            ],
+            "full_text": "1 out 2 back at bell"
+          }
+        },
+        {
+          "horse_id": 816382,
+          "horse_name": "GOOD HEART",
+          "runner_number": 7,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 4,
+          "raw_margin": "17.20",
+          "adjusted_margin": 17.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 350.0,
+          "raw_price": "$ 4.40",
+          "starting_price": 4.4,
+          "trainer_name": "Shane Hoban",
+          "trainer_link_token": "851869BB95DF36D1E055005E00000019",
+          "driver_name": "John Caldow",
+          "driver_link_token": "851869BB6D2136D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "4",
+              "PRB"
+            ],
+            "full_text": "1 out 1 back at bell, post race blood test"
+          }
+        },
+        {
+          "horse_id": 782402,
+          "horse_name": "DAQUIRI",
+          "runner_number": 9,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 5,
+          "raw_margin": "19.40",
+          "adjusted_margin": 19.4,
+          "null_run": false,
+          "scratched": false,
+          "stake": 210.0,
+          "raw_price": "$ 31.00",
+          "starting_price": 31.0,
+          "trainer_name": "Thomas Parnell",
+          "trainer_link_token": "851869BD229A36D1E055005E00000019",
+          "driver_name": "Ian McMahon",
+          "driver_link_token": "851869BB259036D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "7"
+            ],
+            "full_text": "4 back on the pegs at bell"
+          }
+        },
+        {
+          "horse_id": 787386,
+          "horse_name": "KHEIRON",
+          "runner_number": 8,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 6,
+          "raw_margin": "28.40",
+          "adjusted_margin": 28.4,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 23.00",
+          "starting_price": 23.0,
+          "trainer_name": "P R Lane, A M Burke",
+          "trainer_link_token": "078F9EC79ECA0C0CE0638C3EA8C06A78",
+          "driver_name": "Peter Lane",
+          "driver_link_token": "851869BC887C36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "9"
+            ],
+            "full_text": "5 back on the pegs at bell"
+          }
+        },
+        {
+          "horse_id": 799628,
+          "horse_name": "CHARLIE WALKER",
+          "runner_number": 3,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 7,
+          "raw_margin": "29.20",
+          "adjusted_margin": 29.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 6.50",
+          "starting_price": 6.5,
+          "trainer_name": "Ken Whelan",
+          "trainer_link_token": "851869BB499936D1E055005E00000019",
+          "driver_name": "Michael Bellman",
+          "driver_link_token": "851869BB1B8736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "L",
+              "SLE",
+              "3"
+            ],
+            "full_text": "led, surrendered lead early, behind leader at bell"
+          }
+        },
+        {
+          "horse_id": 808682,
+          "horse_name": "ARABELLA SHOWDOWN",
+          "runner_number": 1,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 8,
+          "raw_margin": "35.70",
+          "adjusted_margin": 35.7,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 61.00",
+          "starting_price": 61.0,
+          "trainer_name": "Nicholas O'Connor",
+          "trainer_link_token": "851869C14FD636D1E055005E00000019",
+          "driver_name": "Nicholas O'Connor",
+          "driver_link_token": "851869C14FD636D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "5"
+            ],
+            "full_text": "3 back on pegs at bell"
+          }
+        },
+        {
+          "horse_id": 822429,
+          "horse_name": "ALDEBARAN SIMBA",
+          "runner_number": 2,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 9,
+          "raw_margin": "154.80",
+          "adjusted_margin": 154.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 17.00",
+          "starting_price": 17.0,
+          "trainer_name": "Matthew Craven",
+          "trainer_link_token": "851869BC9B5E36D1E055005E00000019",
+          "driver_name": "Matthew Craven",
+          "driver_link_token": "851869BC9B5E36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "BB",
+              "ODS",
+              "TF",
+              "17"
+            ],
+            "full_text": "began badly, out of draw standing starts, trailed field, tailed off at bell"
+          }
+        }
+      ]
+    },
+    {
+      "race_number": 5,
+      "race_name": "DEVCON PROPERTIES PACE",
+      "race_time": "7:40pm",
+      "race_distance_m": 2100,
+      "race_type": "NR",
+      "class_name": "NR 55 to 60",
+      "age_class": null,
+      "race_purse": 8000.0,
+      "start_type": "Mobile",
+      "race_gait": "PACERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "154:600",
+        "gross_time_s": 154.6,
+        "lead_time_display": "33:800",
+        "lead_time_s": 33.8,
+        "mile_rate_display": "118:500",
+        "mile_rate_s": 118.5,
+        "q1_display": "31:100",
+        "q1_s": 31.1,
+        "q2_display": "30:700",
+        "q2_s": 30.7,
+        "q3_display": "28:900",
+        "q3_s": 28.9,
+        "q4_display": "30:100",
+        "q4_s": 30.1,
+        "first_half_s": 61.8,
+        "second_half_s": 59.0,
+        "margin1": 0.3,
+        "margin2": 0.18
+      },
+      "runners": [
+        {
+          "horse_id": 822312,
+          "horse_name": "KEAYANG CEDRIC",
+          "runner_number": 5,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 4560.0,
+          "raw_price": "$ 4.00",
+          "starting_price": 4.0,
+          "trainer_name": "Margaret Lee",
+          "trainer_link_token": "851869BB73AC36D1E055005E00000019",
+          "driver_name": "Annalise Scott",
+          "driver_link_token": "B313F8134DE31326E055005E00000019",
+          "stewards": {
+            "codes": [
+              "4",
+              "SWAB"
+            ],
+            "full_text": "1 out 1 back at bell, swabbed"
+          }
+        },
+        {
+          "horse_id": 831972,
+          "horse_name": "RAKAJED NZ",
+          "runner_number": 4,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 2,
+          "raw_margin": "NK",
+          "adjusted_margin": null,
+          "null_run": false,
+          "scratched": false,
+          "stake": 1200.0,
+          "raw_price": "$ 3.60",
+          "starting_price": 3.6,
+          "trainer_name": "Jamie Kirk",
+          "trainer_link_token": "851869BB5C7036D1E055005E00000019",
+          "driver_name": "George Batsakis",
+          "driver_link_token": "851869BBBBA536D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "UCL",
+              "OLT",
+              "2"
+            ],
+            "full_text": "gate speed, unsuccessfully contested lead, outside leader throughout, outside leader at bell"
+          }
+        },
+        {
+          "horse_id": 814482,
+          "horse_name": "JILLIBY FLASH",
+          "runner_number": 7,
+          "barrier_raw": "Fr6",
+          "barrier": 6,
+          "finish_position": 3,
+          "raw_margin": "NK",
+          "adjusted_margin": null,
+          "null_run": false,
+          "scratched": false,
+          "stake": 800.0,
+          "raw_price": "$ 17.00",
+          "starting_price": 17.0,
+          "trainer_name": "Julie Douglas",
+          "trainer_link_token": "851869BB134236D1E055005E00000019",
+          "driver_name": "Jack Laugher",
+          "driver_link_token": "851869C149D436D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "RAS",
+              "8"
+            ],
+            "full_text": "restrained after start, 1 out 3 back at bell"
+          }
+        },
+        {
+          "horse_id": 819071,
+          "horse_name": "HURRIKANE FRANCO",
+          "runner_number": 9,
+          "barrier_raw": "Sr2",
+          "barrier": 2,
+          "finish_position": 4,
+          "raw_margin": "4.80",
+          "adjusted_margin": 4.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 400.0,
+          "raw_price": "$ 3.00 fav",
+          "starting_price": 3.0,
+          "trainer_name": "Joe Pace",
+          "trainer_link_token": "851869BC303136D1E055005E00000019",
+          "driver_name": "Adrian Pace",
+          "driver_link_token": "851869C01AE936D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "PH",
+              "6"
+            ],
+            "full_text": "pulled hard, 1 out 2 back at bell"
+          }
+        },
+        {
+          "horse_id": 801449,
+          "horse_name": "WINGATE GUY",
+          "runner_number": 2,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 5,
+          "raw_margin": "7.20",
+          "adjusted_margin": 7.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 240.0,
+          "raw_price": "$ 15.00",
+          "starting_price": 15.0,
+          "trainer_name": "Adam Stephens",
+          "trainer_link_token": "851869BCAC9A36D1E055005E00000019",
+          "driver_name": "Ryan Duffy",
+          "driver_link_token": "851869BD9F9E36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "3",
+              "HUE",
+              "USL"
+            ],
+            "full_text": "behind leader at bell, held up early, used sprint lane"
+          }
+        },
+        {
+          "horse_id": 833923,
+          "horse_name": "GWYNETH P NZ",
+          "runner_number": 8,
+          "barrier_raw": "Sr1",
+          "barrier": 1,
+          "finish_position": 6,
+          "raw_margin": "8.40",
+          "adjusted_margin": 8.4,
+          "null_run": false,
+          "scratched": false,
+          "stake": 160.0,
+          "raw_price": "$ 7.00",
+          "starting_price": 7.0,
+          "trainer_name": "Conor Crook",
+          "trainer_link_token": "851869C11FB836D1E055005E00000019",
+          "driver_name": "Jordan Chibnall",
+          "driver_link_token": "851869C1236436D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "PRS",
+              "7",
+              "HUE"
+            ],
+            "full_text": "pre race swab, 4 back on the pegs at bell, held up early"
+          }
+        },
+        {
+          "horse_id": 816851,
+          "horse_name": "JILLIBY JAY SEA",
+          "runner_number": 3,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 7,
+          "raw_margin": "19.50",
+          "adjusted_margin": 19.5,
+          "null_run": false,
+          "scratched": false,
+          "stake": 160.0,
+          "raw_price": "$ 10.00",
+          "starting_price": 10.0,
+          "trainer_name": "A J Tindale, B J Tindale",
+          "trainer_link_token": "851869C1783336D1E055005E00000019",
+          "driver_name": "Jordan Leedham",
+          "driver_link_token": "851869C1653336D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "L",
+              "WC",
+              "1"
+            ],
+            "full_text": "gate speed, led, withstood challenge, leader at bell"
+          }
+        },
+        {
+          "horse_id": 814331,
+          "horse_name": "HOPES CHOICE",
+          "runner_number": 1,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 8,
+          "raw_margin": "32.30",
+          "adjusted_margin": 32.3,
+          "null_run": false,
+          "scratched": false,
+          "stake": 160.0,
+          "raw_price": "$ 23.00",
+          "starting_price": 23.0,
+          "trainer_name": "Ashleigh Herbertson",
+          "trainer_link_token": "851869BB799536D1E055005E00000019",
+          "driver_name": "James Herbertson",
+          "driver_link_token": "851869C1595636D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "5"
+            ],
+            "full_text": "3 back on pegs at bell"
+          }
+        }
+      ]
+    },
+    {
+      "race_number": 6,
+      "race_name": "OCIRA CONCRETE STRUCTURES NMW MARES PACE",
+      "race_time": "8:11pm",
+      "race_distance_m": 1609,
+      "race_type": "PBD",
+      "class_name": null,
+      "age_class": null,
+      "race_purse": 8000.0,
+      "start_type": "Mobile",
+      "race_gait": "PACERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "116:600",
+        "gross_time_s": 116.6,
+        "lead_time_display": null,
+        "lead_time_s": null,
+        "mile_rate_display": "116:600",
+        "mile_rate_s": 116.6,
+        "q1_display": "27:500",
+        "q1_s": 27.5,
+        "q2_display": "31:800",
+        "q2_s": 31.8,
+        "q3_display": "28:400",
+        "q3_s": 28.4,
+        "q4_display": "29:000",
+        "q4_s": 29.0,
+        "first_half_s": 59.3,
+        "second_half_s": 57.4,
+        "margin1": 2.8,
+        "margin2": 0.25
+      },
+      "runners": [
+        {
+          "horse_id": 811115,
+          "horse_name": "SHEZA DAYDREAMA",
+          "runner_number": 8,
+          "barrier_raw": "Sr1",
+          "barrier": 1,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 4560.0,
+          "raw_price": "$ 13.00",
+          "starting_price": 13.0,
+          "trainer_name": "Amy Day",
+          "trainer_link_token": "851869BF5CD736D1E055005E00000019",
+          "driver_name": "Amy Day",
+          "driver_link_token": "851869BF5CD736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "6",
+              "SWAB"
+            ],
+            "full_text": "1 out 2 back at bell, swabbed"
+          }
+        },
+        {
+          "horse_id": 812298,
+          "horse_name": "LE BELLE BIJOUX",
+          "runner_number": 10,
+          "barrier_raw": "Sr3",
+          "barrier": 3,
+          "finish_position": 2,
+          "raw_margin": "2.80",
+          "adjusted_margin": 2.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 1200.0,
+          "raw_price": "$ 7.50",
+          "starting_price": 7.5,
+          "trainer_name": "Kari Males",
+          "trainer_link_token": "851869BC7B6F36D1E055005E00000019",
+          "driver_name": "Kate Gath",
+          "driver_link_token": "851869BB224236D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "3WM",
+              "WF",
+              "W1",
+              "3WL"
+            ],
+            "full_text": "3 wide middle, worked forward, three wide without cover at bell, 3 wide latter"
+          }
+        },
+        {
+          "horse_id": 831733,
+          "horse_name": "NAKULA NZ",
+          "runner_number": 6,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 3,
+          "raw_margin": "3.50",
+          "adjusted_margin": 3.5,
+          "null_run": false,
+          "scratched": false,
+          "stake": 800.0,
+          "raw_price": "$ 2.90 fav",
+          "starting_price": 2.9,
+          "trainer_name": "David Murphy",
+          "trainer_link_token": "851869BBA46336D1E055005E00000019",
+          "driver_name": "David Murphy",
+          "driver_link_token": "851869BBA46336D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "UCL",
+              "OLT",
+              "2"
+            ],
+            "full_text": "gate speed, unsuccessfully contested lead, outside leader throughout, outside leader at bell"
+          }
+        },
+        {
+          "horse_id": 813877,
+          "horse_name": "HEAVENLY BRIGADE NZ",
+          "runner_number": 9,
+          "barrier_raw": "Sr2",
+          "barrier": 2,
+          "finish_position": 4,
+          "raw_margin": "4.60",
+          "adjusted_margin": 4.6,
+          "null_run": false,
+          "scratched": false,
+          "stake": 400.0,
+          "raw_price": "$ 26.00",
+          "starting_price": 26.0,
+          "trainer_name": "E Brosnan, R J Brosnan",
+          "trainer_link_token": "851869C1705336D1E055005E00000019",
+          "driver_name": "Emmett Brosnan",
+          "driver_link_token": "851869BCFC4736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "8"
+            ],
+            "full_text": "1 out 3 back at bell"
+          }
+        },
+        {
+          "horse_id": 822625,
+          "horse_name": "CHEVRON FLIES NZ",
+          "runner_number": 5,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 5,
+          "raw_margin": "6.70",
+          "adjusted_margin": 6.7,
+          "null_run": false,
+          "scratched": false,
+          "stake": 240.0,
+          "raw_price": "$ 6.50",
+          "starting_price": 6.5,
+          "trainer_name": "Julie Douglas",
+          "trainer_link_token": "851869BB134236D1E055005E00000019",
+          "driver_name": "Kevin Weidenbach",
+          "driver_link_token": "851869BB82BD36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "SHI",
+              "D/S",
+              "3",
+              "HUE",
+              "SHI",
+              "CMP",
+              "D/F",
+              "USL"
+            ],
+            "full_text": "shifted in, driver suspended, behind leader at bell, held up early, shifted in, contact marker pegs, driver fined, used sprint lane"
+          }
+        },
+        {
+          "horse_id": 812421,
+          "horse_name": "MISS HERMES",
+          "runner_number": 4,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 6,
+          "raw_margin": "11.20",
+          "adjusted_margin": 11.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 160.0,
+          "raw_price": "$ 31.00",
+          "starting_price": 31.0,
+          "trainer_name": "Julie Douglas",
+          "trainer_link_token": "851869BB134236D1E055005E00000019",
+          "driver_name": "Jack Laugher",
+          "driver_link_token": "851869C149D436D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "T/CT",
+              "5"
+            ],
+            "full_text": "trainer cautioned tactics, 3 back on pegs at bell"
+          }
+        },
+        {
+          "horse_id": 818389,
+          "horse_name": "LOTTIE MOON NZ",
+          "runner_number": 11,
+          "barrier_raw": "Sr4",
+          "barrier": 4,
+          "finish_position": 7,
+          "raw_margin": "12.80",
+          "adjusted_margin": 12.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 160.0,
+          "raw_price": "$ 5.00",
+          "starting_price": 5.0,
+          "trainer_name": "A J Tindale, B J Tindale",
+          "trainer_link_token": "851869C1783336D1E055005E00000019",
+          "driver_name": "Greg Sugars",
+          "driver_link_token": "851869BB9E6D36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "10"
+            ],
+            "full_text": "1 out 4 back at bell"
+          }
+        },
+        {
+          "horse_id": 821520,
+          "horse_name": "SWEET AGENDA",
+          "runner_number": 3,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 8,
+          "raw_margin": "13.00",
+          "adjusted_margin": 13.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 160.0,
+          "raw_price": "$ 4.40",
+          "starting_price": 4.4,
+          "trainer_name": "Shane Sanderson",
+          "trainer_link_token": "851869BD674B36D1E055005E00000019",
+          "driver_name": "Ryan Sanderson",
+          "driver_link_token": "851869C160B236D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "WC",
+              "L",
+              "1"
+            ],
+            "full_text": "gate speed, withstood challenge, led, leader at bell"
+          }
+        },
+        {
+          "horse_id": 812128,
+          "horse_name": "FLORENCEOFKINTAIL",
+          "runner_number": 2,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 9,
+          "raw_margin": "79.10",
+          "adjusted_margin": 79.1,
+          "null_run": false,
+          "scratched": false,
+          "stake": 160.0,
+          "raw_price": "$ 41.00",
+          "starting_price": 41.0,
+          "trainer_name": "Amy Crossland",
+          "trainer_link_token": "851869BC62BD36D1E055005E00000019",
+          "driver_name": "Chris Alford",
+          "driver_link_token": "851869BB3FB036D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "T",
+              "C",
+              "4",
+              "HI",
+              "TIRE",
+              "VXAR",
+              "QUER",
+              "LCRC"
+            ],
+            "full_text": "tightened, checked, 1 out 1 back at bell, hung in, tired latter stages, vets examination after race, run queried, last chance to race competitively"
+          }
+        }
+      ]
+    },
+    {
+      "race_number": 7,
+      "race_name": "CAMP QUALITY GEELONG CONVOY FEB 18 PACE",
+      "race_time": "8:42pm",
+      "race_distance_m": 2100,
+      "race_type": "NR",
+      "class_name": "NR 50 to 55",
+      "age_class": null,
+      "race_purse": 7000.0,
+      "start_type": "Mobile",
+      "race_gait": "PACERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "158:100",
+        "gross_time_s": 158.1,
+        "lead_time_display": "36:000",
+        "lead_time_s": 36.0,
+        "mile_rate_display": "121:100",
+        "mile_rate_s": 121.1,
+        "q1_display": "31:700",
+        "q1_s": 31.7,
+        "q2_display": "32:100",
+        "q2_s": 32.1,
+        "q3_display": "28:100",
+        "q3_s": 28.1,
+        "q4_display": "30:200",
+        "q4_s": 30.2,
+        "first_half_s": 63.8,
+        "second_half_s": 58.3,
+        "margin1": 0.2,
+        "margin2": 0.18
+      },
+      "runners": [
+        {
+          "horse_id": 793978,
+          "horse_name": "LENARD ESS",
+          "runner_number": 9,
+          "barrier_raw": "Sr2",
+          "barrier": 2,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 3990.0,
+          "raw_price": "$ 5.50 fav",
+          "starting_price": 5.5,
+          "trainer_name": "Jess Tubbs",
+          "trainer_link_token": "851869BCBD3B36D1E055005E00000019",
+          "driver_name": "Greg Sugars",
+          "driver_link_token": "851869BB9E6D36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "5",
+              "SWAB"
+            ],
+            "full_text": "3 back on pegs at bell, swabbed"
+          }
+        },
+        {
+          "horse_id": 811184,
+          "horse_name": "NOTNEGOTIABLE",
+          "runner_number": 5,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 2,
+          "raw_margin": "SHFHD",
+          "adjusted_margin": null,
+          "null_run": false,
+          "scratched": false,
+          "stake": 1050.0,
+          "raw_price": "$ 5.50 fav",
+          "starting_price": 5.5,
+          "trainer_name": "Gary Lawlor",
+          "trainer_link_token": "851869BB484336D1E055005E00000019",
+          "driver_name": "Jason Lee",
+          "driver_link_token": "851869BCA7E736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "3WE",
+              "WF",
+              "L",
+              "1"
+            ],
+            "full_text": "3 wide early, worked forward, led, leader at bell"
+          }
+        },
+        {
+          "horse_id": 821527,
+          "horse_name": "BETTORPATCHMEUP",
+          "runner_number": 11,
+          "barrier_raw": "Sr4",
+          "barrier": 4,
+          "finish_position": 3,
+          "raw_margin": "HFHD",
+          "adjusted_margin": null,
+          "null_run": false,
+          "scratched": false,
+          "stake": 700.0,
+          "raw_price": "$ 5.50 fav",
+          "starting_price": 5.5,
+          "trainer_name": "Matthew Craven",
+          "trainer_link_token": "851869BC9B5E36D1E055005E00000019",
+          "driver_name": "Amy Day",
+          "driver_link_token": "851869BF5CD736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "8"
+            ],
+            "full_text": "1 out 3 back at bell"
+          }
+        },
+        {
+          "horse_id": 817992,
+          "horse_name": "EMER",
+          "runner_number": 1,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 4,
+          "raw_margin": "2.00",
+          "adjusted_margin": 2.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 350.0,
+          "raw_price": "$ 5.50 fav",
+          "starting_price": 5.5,
+          "trainer_name": "John Murphy",
+          "trainer_link_token": "851869BB871736D1E055005E00000019",
+          "driver_name": "Brent Murphy",
+          "driver_link_token": "851869C1452636D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "WC",
+              "L",
+              "SLM",
+              "3"
+            ],
+            "full_text": "gate speed, withstood challenge, led, surrendered lead middle, behind leader at bell"
+          }
+        },
+        {
+          "horse_id": 819060,
+          "horse_name": "I BET YOU",
+          "runner_number": 10,
+          "barrier_raw": "Sr3",
+          "barrier": 3,
+          "finish_position": 5,
+          "raw_margin": "3.00",
+          "adjusted_margin": 3.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 210.0,
+          "raw_price": "$ 8.00",
+          "starting_price": 8.0,
+          "trainer_name": "Fred Spiteri",
+          "trainer_link_token": "851869BC51C336D1E055005E00000019",
+          "driver_name": "Chris Alford",
+          "driver_link_token": "851869BB3FB036D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "6"
+            ],
+            "full_text": "1 out 2 back at bell"
+          }
+        },
+        {
+          "horse_id": 805569,
+          "horse_name": "DIEGOS DIAMOND",
+          "runner_number": 6,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 6,
+          "raw_margin": "8.50",
+          "adjusted_margin": 8.5,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 18.00",
+          "starting_price": 18.0,
+          "trainer_name": "Jodi Quinlan",
+          "trainer_link_token": "851869BB79D736D1E055005E00000019",
+          "driver_name": "Jodi Quinlan",
+          "driver_link_token": "851869BB79D736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "RAS",
+              "7"
+            ],
+            "full_text": "restrained after start, 4 back on the pegs at bell"
+          }
+        },
+        {
+          "horse_id": 819424,
+          "horse_name": "BULLETPROOF KID",
+          "runner_number": 7,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 7,
+          "raw_margin": "10.00",
+          "adjusted_margin": 10.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 7.00",
+          "starting_price": 7.0,
+          "trainer_name": "Scott Ewen",
+          "trainer_link_token": "851869BF646A36D1E055005E00000019",
+          "driver_name": "Scott Ewen",
+          "driver_link_token": "851869BF646A36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "RAS",
+              "4"
+            ],
+            "full_text": "restrained after start, 1 out 1 back at bell"
+          }
+        },
+        {
+          "horse_id": 816641,
+          "horse_name": "ROLL WITH RON",
+          "runner_number": 12,
+          "barrier_raw": "Sr5",
+          "barrier": 5,
+          "finish_position": 8,
+          "raw_margin": "17.30",
+          "adjusted_margin": 17.3,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 12.00",
+          "starting_price": 12.0,
+          "trainer_name": "Julie Douglas",
+          "trainer_link_token": "851869BB134236D1E055005E00000019",
+          "driver_name": "Jack Laugher",
+          "driver_link_token": "851869C149D436D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "10"
+            ],
+            "full_text": "1 out 4 back at bell"
+          }
+        },
+        {
+          "horse_id": 822177,
+          "horse_name": "WATCH IT HAPPEN",
+          "runner_number": 13,
+          "barrier_raw": "Sr6",
+          "barrier": 6,
+          "finish_position": 9,
+          "raw_margin": "23.30",
+          "adjusted_margin": 23.3,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 51.00",
+          "starting_price": 51.0,
+          "trainer_name": "David Miles",
+          "trainer_link_token": "851869BB8DA036D1E055005E00000019",
+          "driver_name": "David Miles",
+          "driver_link_token": "851869BB8DA036D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "11"
+            ],
+            "full_text": "6 back on the pegs at bell"
+          }
+        },
+        {
+          "horse_id": 812170,
+          "horse_name": "SHALLOW BEACH",
+          "runner_number": 8,
+          "barrier_raw": "Sr1",
+          "barrier": 1,
+          "finish_position": 10,
+          "raw_margin": "28.80",
+          "adjusted_margin": 28.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 41.00",
+          "starting_price": 41.0,
+          "trainer_name": "Julie Mifsud",
+          "trainer_link_token": "851869BC387B36D1E055005E00000019",
+          "driver_name": "Ian McMahon",
+          "driver_link_token": "851869BB259036D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "9"
+            ],
+            "full_text": "5 back on the pegs at bell"
+          }
+        },
+        {
+          "horse_id": 822237,
+          "horse_name": "CINQUANTA",
+          "runner_number": 4,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 11,
+          "raw_margin": "99.10",
+          "adjusted_margin": 99.1,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 16.00",
+          "starting_price": 16.0,
+          "trainer_name": "Shane Sanderson",
+          "trainer_link_token": "851869BD674B36D1E055005E00000019",
+          "driver_name": "Ryan Sanderson",
+          "driver_link_token": "851869C160B236D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "UCL",
+              "OLT",
+              "PH",
+              "2",
+              "HI",
+              "TIRE",
+              "VXAR",
+              "NAR",
+              "LCRC",
+              "LCRT"
+            ],
+            "full_text": "gate speed, unsuccessfully contested lead, outside leader throughout, pulled hard, outside leader at bell, hung in, tired latter stages, vets examination after race, no abnormalities rep., last chance to race competitively, last chance to race truly"
+          }
+        }
+      ]
+    },
+    {
+      "race_number": 8,
+      "race_name": "CAINYS PLUMBING & AG SERVICES PACE",
+      "race_time": "9:14pm",
+      "race_distance_m": 1609,
+      "race_type": "NR",
+      "class_name": "NR 60 to 69",
+      "age_class": null,
+      "race_purse": 9000.0,
+      "start_type": "Mobile",
+      "race_gait": "PACERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "117:800",
+        "gross_time_s": 117.8,
+        "lead_time_display": null,
+        "lead_time_s": null,
+        "mile_rate_display": "117:800",
+        "mile_rate_s": 117.8,
+        "q1_display": "28:900",
+        "q1_s": 28.9,
+        "q2_display": "31:700",
+        "q2_s": 31.7,
+        "q3_display": "29:800",
+        "q3_s": 29.8,
+        "q4_display": "27:500",
+        "q4_s": 27.5,
+        "first_half_s": 60.6,
+        "second_half_s": 57.3,
+        "margin1": 0.3,
+        "margin2": 1.3
+      },
+      "runners": [
+        {
+          "horse_id": 830992,
+          "horse_name": "OURMATEMENKO NZ",
+          "runner_number": 3,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 5130.0,
+          "raw_price": "$ 3.60",
+          "starting_price": 3.6,
+          "trainer_name": "Shane Sanderson",
+          "trainer_link_token": "851869BD674B36D1E055005E00000019",
+          "driver_name": "Ryan Sanderson",
+          "driver_link_token": "851869C160B236D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "WF",
+              "L",
+              "1",
+              "SWAB"
+            ],
+            "full_text": "gate speed, worked forward, led, leader at bell, swabbed"
+          }
+        },
+        {
+          "horse_id": 804448,
+          "horse_name": "WOTDIDUSAAAY",
+          "runner_number": 4,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 2,
+          "raw_margin": "NK",
+          "adjusted_margin": null,
+          "null_run": false,
+          "scratched": false,
+          "stake": 1350.0,
+          "raw_price": "$ 3.10",
+          "starting_price": 3.1,
+          "trainer_name": "Charlie Mizzi",
+          "trainer_link_token": "851869BB5F8836D1E055005E00000019",
+          "driver_name": "Michael Bellman",
+          "driver_link_token": "851869BB1B8736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "4"
+            ],
+            "full_text": "1 out 1 back at bell"
+          }
+        },
+        {
+          "horse_id": 831912,
+          "horse_name": "JOHN MCLEAN NZ",
+          "runner_number": 5,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 3,
+          "raw_margin": "2.20",
+          "adjusted_margin": 2.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 900.0,
+          "raw_price": "$ 2.90 fav",
+          "starting_price": 2.9,
+          "trainer_name": "Julie Douglas",
+          "trainer_link_token": "851869BB134236D1E055005E00000019",
+          "driver_name": "Jack Laugher",
+          "driver_link_token": "851869C149D436D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "PRS",
+              "RAS",
+              "3WE",
+              "WF",
+              "2"
+            ],
+            "full_text": "pre race swab, restrained after start, 3 wide early, worked forward, outside leader at bell"
+          }
+        },
+        {
+          "horse_id": 795024,
+          "horse_name": "MYZARMI",
+          "runner_number": 2,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 4,
+          "raw_margin": "3.60",
+          "adjusted_margin": 3.6,
+          "null_run": false,
+          "scratched": false,
+          "stake": 450.0,
+          "raw_price": "$ 61.00",
+          "starting_price": 61.0,
+          "trainer_name": "Lisa Miles",
+          "trainer_link_token": "851869BB373B36D1E055005E00000019",
+          "driver_name": "Lisa Miles",
+          "driver_link_token": "851869BB373B36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "L",
+              "SLE",
+              "PH",
+              "3",
+              "USL"
+            ],
+            "full_text": "gate speed, led, surrendered lead early, pulled hard, behind leader at bell, used sprint lane"
+          }
+        },
+        {
+          "horse_id": 806236,
+          "horse_name": "BETTER DAY",
+          "runner_number": 1,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 5,
+          "raw_margin": "5.00",
+          "adjusted_margin": 5.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 270.0,
+          "raw_price": "$ 6.00",
+          "starting_price": 6.0,
+          "trainer_name": "Conor Crook",
+          "trainer_link_token": "851869C11FB836D1E055005E00000019",
+          "driver_name": "Jordan Chibnall",
+          "driver_link_token": "851869C1236436D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "5"
+            ],
+            "full_text": "3 back on pegs at bell"
+          }
+        },
+        {
+          "horse_id": 794287,
+          "horse_name": "IM SHADOW BOXER",
+          "runner_number": 6,
+          "barrier_raw": "Fr6",
+          "barrier": 6,
+          "finish_position": 6,
+          "raw_margin": "12.20",
+          "adjusted_margin": 12.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 180.0,
+          "raw_price": "$ 12.00",
+          "starting_price": 12.0,
+          "trainer_name": "Ashleigh Herbertson",
+          "trainer_link_token": "851869BB799536D1E055005E00000019",
+          "driver_name": "James Herbertson",
+          "driver_link_token": "851869C1595636D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "RAS",
+              "6"
+            ],
+            "full_text": "restrained after start, 1 out 2 back at bell"
+          }
+        }
+      ]
+    },
+    {
+      "race_number": 9,
+      "race_name": "JIMS MOWING MAIDEN PACE",
+      "race_time": "9:52pm",
+      "race_distance_m": 2100,
+      "race_type": "RBD",
+      "class_name": null,
+      "age_class": "3YO and older",
+      "race_purse": 7000.0,
+      "start_type": "Mobile",
+      "race_gait": "PACERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "155:200",
+        "gross_time_s": 155.2,
+        "lead_time_display": "35:700",
+        "lead_time_s": 35.7,
+        "mile_rate_display": "118:900",
+        "mile_rate_s": 118.9,
+        "q1_display": "30:800",
+        "q1_s": 30.8,
+        "q2_display": "30:500",
+        "q2_s": 30.5,
+        "q3_display": "29:700",
+        "q3_s": 29.7,
+        "q4_display": "28:500",
+        "q4_s": 28.5,
+        "first_half_s": 61.3,
+        "second_half_s": 58.2,
+        "margin1": 8.2,
+        "margin2": 0.25
+      },
+      "runners": [
+        {
+          "horse_id": 835911,
+          "horse_name": "HES FROM HEAVEN NZ",
+          "runner_number": 4,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 3990.0,
+          "raw_price": "$ 1.60 fav",
+          "starting_price": 1.6,
+          "trainer_name": "Jess Tubbs",
+          "trainer_link_token": "851869BCBD3B36D1E055005E00000019",
+          "driver_name": "Greg Sugars",
+          "driver_link_token": "851869BB9E6D36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "OLM",
+              "HO",
+              "LW",
+              "SCT",
+              "2"
+            ],
+            "full_text": "outside leader last mile, hung out, locked wheels, sulky contacted, outside leader at bell"
+          }
+        },
+        {
+          "horse_id": 821193,
+          "horse_name": "BOUT DAMN TIME",
+          "runner_number": 5,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 2,
+          "raw_margin": "8.20",
+          "adjusted_margin": 8.2,
+          "null_run": false,
+          "scratched": false,
+          "stake": 1050.0,
+          "raw_price": "$ 2.70",
+          "starting_price": 2.7,
+          "trainer_name": "Dean Braun",
+          "trainer_link_token": "851869BB511536D1E055005E00000019",
+          "driver_name": "Chris Alford",
+          "driver_link_token": "851869BB3FB036D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "RAS",
+              "4"
+            ],
+            "full_text": "restrained after start, 1 out 1 back at bell"
+          }
+        },
+        {
+          "horse_id": 824436,
+          "horse_name": "LOU EASYANA",
+          "runner_number": 2,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 3,
+          "raw_margin": "8.80",
+          "adjusted_margin": 8.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 700.0,
+          "raw_price": "$ 8.00",
+          "starting_price": 8.0,
+          "trainer_name": "Glenn Williams",
+          "trainer_link_token": "851869BBBDE636D1E055005E00000019",
+          "driver_name": "Glenn Williams",
+          "driver_link_token": "851869BBBDE636D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "3",
+              "HUE",
+              "CMP",
+              "USL"
+            ],
+            "full_text": "behind leader at bell, held up early, contact marker pegs, used sprint lane"
+          }
+        },
+        {
+          "horse_id": 824311,
+          "horse_name": "HARRO HILL",
+          "runner_number": 6,
+          "barrier_raw": "Fr6",
+          "barrier": 6,
+          "finish_position": 4,
+          "raw_margin": "13.80",
+          "adjusted_margin": 13.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 350.0,
+          "raw_price": "$ 51.00",
+          "starting_price": 51.0,
+          "trainer_name": "Kari Males",
+          "trainer_link_token": "851869BC7B6F36D1E055005E00000019",
+          "driver_name": "Josh Duggan",
+          "driver_link_token": "851869BD127C36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "RAS",
+              "8"
+            ],
+            "full_text": "restrained after start, 1 out 3 back at bell"
+          }
+        },
+        {
+          "horse_id": 824505,
+          "horse_name": "BLACKINDEED",
+          "runner_number": 9,
+          "barrier_raw": "Sr2",
+          "barrier": 2,
+          "finish_position": 5,
+          "raw_margin": "28.50",
+          "adjusted_margin": 28.5,
+          "null_run": false,
+          "scratched": false,
+          "stake": 210.0,
+          "raw_price": "$ 51.00",
+          "starting_price": 51.0,
+          "trainer_name": "Neville Henderson",
+          "trainer_link_token": "851869BB6F9D36D1E055005E00000019",
+          "driver_name": "Mandie Henderson",
+          "driver_link_token": "851869BB455A36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "6"
+            ],
+            "full_text": "1 out 2 back at bell"
+          }
+        },
+        {
+          "horse_id": 819368,
+          "horse_name": "MOTHER OF PEARL",
+          "runner_number": 8,
+          "barrier_raw": "Sr1",
+          "barrier": 1,
+          "finish_position": 6,
+          "raw_margin": "28.80",
+          "adjusted_margin": 28.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 51.00",
+          "starting_price": 51.0,
+          "trainer_name": "Matthew Craven",
+          "trainer_link_token": "851869BC9B5E36D1E055005E00000019",
+          "driver_name": "Matthew Craven",
+          "driver_link_token": "851869BC9B5E36D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "5"
+            ],
+            "full_text": "3 back on pegs at bell"
+          }
+        },
+        {
+          "horse_id": 823636,
+          "horse_name": "COOPER CLEAVER",
+          "runner_number": 7,
+          "barrier_raw": "Fr7",
+          "barrier": 7,
+          "finish_position": 7,
+          "raw_margin": "50.30",
+          "adjusted_margin": 50.3,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 23.00",
+          "starting_price": 23.0,
+          "trainer_name": "Charlie Mizzi",
+          "trainer_link_token": "851869BB5F8836D1E055005E00000019",
+          "driver_name": "Michael Bellman",
+          "driver_link_token": "851869BB1B8736D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "3WE",
+              "WF",
+              "HI",
+              "LW",
+              "CTS",
+              "B",
+              "10"
+            ],
+            "full_text": "3 wide early, worked forward, hung in, locked wheels, contacted sulky, broke, 1 out 4 back at bell"
+          }
+        },
+        {
+          "horse_id": 820825,
+          "horse_name": "ITS A FUGAZI",
+          "runner_number": 1,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 8,
+          "raw_margin": "53.90",
+          "adjusted_margin": 53.9,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 126.00",
+          "starting_price": 126.0,
+          "trainer_name": "David Murphy",
+          "trainer_link_token": "851869BBA46336D1E055005E00000019",
+          "driver_name": "David Murphy",
+          "driver_link_token": "851869BBA46336D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "L",
+              "1",
+              "TIRE",
+              "WI"
+            ],
+            "full_text": "gate speed, led, leader at bell, tired latter stages, warning issued"
+          }
+        },
+        {
+          "horse_id": 821402,
+          "horse_name": "BIRDIES JOLT",
+          "runner_number": 3,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 9,
+          "raw_margin": "59.50",
+          "adjusted_margin": 59.5,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 101.00",
+          "starting_price": 101.0,
+          "trainer_name": "Zac Steenhuis",
+          "trainer_link_token": "851869C0F54A36D1E055005E00000019",
+          "driver_name": "Jack Laugher",
+          "driver_link_token": "851869C149D436D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "HI",
+              "7",
+              "TIRE",
+              "WI"
+            ],
+            "full_text": "hung in, 4 back on the pegs at bell, tired latter stages, warning issued"
+          }
+        }
+      ]
+    },
+    {
+      "race_number": 10,
+      "race_name": "SOUTHERN CROSS FEEDS TROT (2ND HEAT)",
+      "race_time": "10:27pm",
+      "race_distance_m": 2100,
+      "race_type": "NR",
+      "class_name": "NR up to 45",
+      "age_class": null,
+      "race_purse": 4500.0,
+      "start_type": "Mobile",
+      "race_gait": "TROTTERS",
+      "is_final": true,
+      "times": {
+        "track_rating": "GOOD",
+        "gross_time_display": "164:200",
+        "gross_time_s": 164.2,
+        "lead_time_display": "38:400",
+        "lead_time_s": 38.4,
+        "mile_rate_display": "125:800",
+        "mile_rate_s": 125.8,
+        "q1_display": "33:000",
+        "q1_s": 33.0,
+        "q2_display": "32:400",
+        "q2_s": 32.4,
+        "q3_display": "29:500",
+        "q3_s": 29.5,
+        "q4_display": "30:900",
+        "q4_s": 30.9,
+        "first_half_s": 65.4,
+        "second_half_s": 60.4,
+        "margin1": 1.7,
+        "margin2": 5.2
+      },
+      "runners": [
+        {
+          "horse_id": 816893,
+          "horse_name": "ALWAYS SKYE HIGH",
+          "runner_number": 5,
+          "barrier_raw": "Fr5",
+          "barrier": 5,
+          "finish_position": 1,
+          "raw_margin": null,
+          "adjusted_margin": 0.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 2250.0,
+          "raw_price": "$ 2.40 fav",
+          "starting_price": 2.4,
+          "trainer_name": "David Murphy",
+          "trainer_link_token": "851869BBA46336D1E055005E00000019",
+          "driver_name": "David Murphy",
+          "driver_link_token": "851869BBA46336D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "WF",
+              "OLM",
+              "2"
+            ],
+            "full_text": "worked forward, outside leader last mile, outside leader at bell"
+          }
+        },
+        {
+          "horse_id": 786339,
+          "horse_name": "PRIMZ LUCK NZ",
+          "runner_number": 3,
+          "barrier_raw": "Fr3",
+          "barrier": 3,
+          "finish_position": 2,
+          "raw_margin": "1.70",
+          "adjusted_margin": 1.7,
+          "null_run": false,
+          "scratched": false,
+          "stake": 700.0,
+          "raw_price": "$ 3.70",
+          "starting_price": 3.7,
+          "trainer_name": "John Matthews",
+          "trainer_link_token": "851869BB6E7136D1E055005E00000019",
+          "driver_name": "Neil McCallum",
+          "driver_link_token": "851869BB859836D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "VXAH",
+              "4"
+            ],
+            "full_text": "vet exam aged horse, 1 out 1 back at bell"
+          }
+        },
+        {
+          "horse_id": 807762,
+          "horse_name": "ROLL WITH ROSCO",
+          "runner_number": 6,
+          "barrier_raw": "Fr6",
+          "barrier": 6,
+          "finish_position": 3,
+          "raw_margin": "6.90",
+          "adjusted_margin": 6.9,
+          "null_run": false,
+          "scratched": false,
+          "stake": 460.0,
+          "raw_price": "$ 26.00",
+          "starting_price": 26.0,
+          "trainer_name": "Clinton Welsh",
+          "trainer_link_token": "851869BB0E1236D1E055005E00000019",
+          "driver_name": "Clinton Welsh",
+          "driver_link_token": "851869BB0E1236D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "OPS",
+              "CODM",
+              "RAS",
+              "6"
+            ],
+            "full_text": "out of position at start, continue ODM, restrained after start, 1 out 2 back at bell"
+          }
+        },
+        {
+          "horse_id": 794698,
+          "horse_name": "DOUBLE DOT",
+          "runner_number": 1,
+          "barrier_raw": "Fr1",
+          "barrier": 1,
+          "finish_position": 4,
+          "raw_margin": "9.30",
+          "adjusted_margin": 9.3,
+          "null_run": false,
+          "scratched": false,
+          "stake": 250.0,
+          "raw_price": "$ 26.00",
+          "starting_price": 26.0,
+          "trainer_name": "Bill White",
+          "trainer_link_token": "851869BBBD2536D1E055005E00000019",
+          "driver_name": "Lauren White",
+          "driver_link_token": "851869C178A936D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "5"
+            ],
+            "full_text": "3 back on pegs at bell"
+          }
+        },
+        {
+          "horse_id": 804985,
+          "horse_name": "MAJESTIC JEWEL",
+          "runner_number": 2,
+          "barrier_raw": "Fr2",
+          "barrier": 2,
+          "finish_position": 5,
+          "raw_margin": "9.80",
+          "adjusted_margin": 9.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 7.50",
+          "starting_price": 7.5,
+          "trainer_name": "Ron Comben",
+          "trainer_link_token": "851869BB240436D1E055005E00000019",
+          "driver_name": "James Herbertson",
+          "driver_link_token": "851869C1595636D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "3"
+            ],
+            "full_text": "gate speed, behind leader at bell"
+          }
+        },
+        {
+          "horse_id": 809722,
+          "horse_name": "JAHBELLA",
+          "runner_number": 4,
+          "barrier_raw": "Fr4",
+          "barrier": 4,
+          "finish_position": 6,
+          "raw_margin": "10.00",
+          "adjusted_margin": 10.0,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 3.30",
+          "starting_price": 3.3,
+          "trainer_name": "Brent Jewell",
+          "trainer_link_token": "851869BB6ED936D1E055005E00000019",
+          "driver_name": "John Caldow",
+          "driver_link_token": "851869BB6D2136D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "GS",
+              "L",
+              "1"
+            ],
+            "full_text": "gate speed, led, leader at bell"
+          }
+        },
+        {
+          "horse_id": 804180,
+          "horse_name": "SETTLE THE BILL",
+          "runner_number": 7,
+          "barrier_raw": "Fr7",
+          "barrier": 7,
+          "finish_position": 7,
+          "raw_margin": "11.80",
+          "adjusted_margin": 11.8,
+          "null_run": false,
+          "scratched": false,
+          "stake": 140.0,
+          "raw_price": "$ 51.00",
+          "starting_price": 51.0,
+          "trainer_name": "Eddie Conroy",
+          "trainer_link_token": "851869BB7E3536D1E055005E00000019",
+          "driver_name": "Eddie Conroy",
+          "driver_link_token": "851869BB7E3536D1E055005E00000019",
+          "stewards": {
+            "codes": [
+              "OPS",
+              "CRODM",
+              "RAS",
+              "7"
+            ],
+            "full_text": "out of position at start, continue RODM, restrained after start, 4 back on the pegs at bell"
+          }
+        }
+      ]
+    }
+  ]
+}
