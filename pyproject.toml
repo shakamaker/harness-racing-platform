@@ -1,0 +1,43 @@
+[project]
+name = "harness-racing-platform"
+version = "0.0.0"
+description = "Australian harness racing data platform (workspace root)"
+requires-python = ">=3.12"
+
+[tool.uv.workspace]
+members = [
+  "packages/models",
+  "services/scraper",
+  "services/parser",
+  "services/api",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "S", "A", "C4", "PT", "SIM", "TID", "RUF"]
+ignore = ["S101"]  # assert allowed in tests
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S105", "S106", "S311"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["packages", "services"]
+addopts = "-ra --strict-markers"
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+branch = true
+source = ["packages", "services"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "raise NotImplementedError", "if TYPE_CHECKING:"]

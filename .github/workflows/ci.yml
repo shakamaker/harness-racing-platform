@@ -1,0 +1,156 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop, main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  detect-lanes:
+    name: Detect changed lanes
+    runs-on: ubuntu-latest
+    outputs:
+      models: ${{ steps.filter.outputs.models }}
+      scraper: ${{ steps.filter.outputs.scraper }}
+      parser: ${{ steps.filter.outputs.parser }}
+      api: ${{ steps.filter.outputs.api }}
+      web: ${{ steps.filter.outputs.web }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            models:
+              - 'packages/models/**'
+              - 'sql/migrations/**'
+            scraper:
+              - 'services/scraper/**'
+            parser:
+              - 'services/parser/**'
+            api:
+              - 'services/api/**'
+              - 'sql/queries/**'
+            web:
+              - 'apps/web/**'
+
+  python-lint-type:
+    name: Python lint + type-check
+    runs-on: ubuntu-latest
+    needs: detect-lanes
+    if: |
+      needs.detect-lanes.outputs.models == 'true' ||
+      needs.detect-lanes.outputs.scraper == 'true' ||
+      needs.detect-lanes.outputs.parser == 'true' ||
+      needs.detect-lanes.outputs.api == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+        with:
+          version: latest
+      - run: uv sync --all-extras --dev
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy packages services
+
+  python-tests:
+    name: Python tests + coverage
+    runs-on: ubuntu-latest
+    needs: detect-lanes
+    if: |
+      needs.detect-lanes.outputs.models == 'true' ||
+      needs.detect-lanes.outputs.scraper == 'true' ||
+      needs.detect-lanes.outputs.parser == 'true' ||
+      needs.detect-lanes.outputs.api == 'true'
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: harness_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/harness_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - run: uv sync --all-extras --dev
+      - run: uv run alembic upgrade head
+        working-directory: packages/models
+        continue-on-error: true  # Sprint 0: tolerate while Agent 3 builds baseline
+      - run: uv run pytest --cov --cov-report=xml --cov-fail-under=80
+      - uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage.xml
+        if: always()
+
+  web-lint-type:
+    name: Web lint + type-check
+    runs-on: ubuntu-latest
+    needs: detect-lanes
+    if: needs.detect-lanes.outputs.web == 'true'
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: apps/web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+
+  web-tests:
+    name: Web tests + build
+    runs-on: ubuntu-latest
+    needs: detect-lanes
+    if: needs.detect-lanes.outputs.web == 'true'
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: apps/web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test --run
+      - run: pnpm build
+
+  security:
+    name: Security scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: python, javascript
+      - uses: github/codeql-action/analyze@v3
+      - name: Trivy filesystem scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          severity: CRITICAL,HIGH
+          exit-code: '1'
+          ignore-unfixed: true
