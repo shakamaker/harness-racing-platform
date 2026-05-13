@@ -17,7 +17,7 @@ from __future__ import annotations
 from datetime import date
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, computed_field, field_validator
 
 DayNight = Literal["DAY", "NIGHT", "TWILIGHT", "UNKNOWN"]
 
@@ -55,12 +55,22 @@ class RaceTimesDTO(_BaseDTO):
     q3_s: float | None = None
     q4_display: str | None = None
     q4_s: float | None = None
-    first_half_s: float | None = None
-    """Calculated: ``q1_s + q2_s`` when both are present."""
-    second_half_s: float | None = None
-    """Calculated: ``q3_s + q4_s`` when both are present."""
     margin1: float | None = None
     margin2: float | None = None
+
+    @computed_field  # type: ignore[prop-decorator]
+    @property
+    def first_half_s(self) -> float | None:
+        if self.q1_s is None or self.q2_s is None:
+            return None
+        return round(self.q1_s + self.q2_s, 3)
+
+    @computed_field  # type: ignore[prop-decorator]
+    @property
+    def second_half_s(self) -> float | None:
+        if self.q3_s is None or self.q4_s is None:
+            return None
+        return round(self.q3_s + self.q4_s, 3)
 
 
 class RunnerDTO(_BaseDTO):
