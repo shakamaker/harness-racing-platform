@@ -22,7 +22,9 @@ class ParTimesRead(BaseSchema):
     par_gross_time_s: Decimal | None
     par_lead_time_s: Decimal | None
     par_mile_rate_s: Decimal | None
-    sample_size: int
+    gross_sample_size: int
+    lead_sample_size: int
+    mile_sample_size: int
     computed_at: datetime
 
     @computed_field  # type: ignore[prop-decorator]
@@ -41,4 +43,8 @@ class ParTimesRead(BaseSchema):
         return format_ss_ms(self.par_mile_rate_s)
 
 
-__all__ = ["ParTimesRead"]
+# Backwards-compatible alias (older code may import MvParTimesRead).
+MvParTimesRead = ParTimesRead
+
+
+__all__ = ["MvParTimesRead", "ParTimesRead"]

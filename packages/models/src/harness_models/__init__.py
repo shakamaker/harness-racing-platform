@@ -1,8 +1,9 @@
-"""Public API for the harness_models package.
+"""Public API for harness_models.
 
-Importing this module forces every ORM class to register itself with
-``Base.metadata`` so that ``Base.metadata.create_all(engine)`` and Alembic
-autogenerate both see the complete schema.
+NOTE: The canonical DDL lives in ``sql/schema.sql``. This ORM is the
+read/write mapper only — do not bootstrap a fresh database via
+``Base.metadata.create_all()``. The PG ENUMs, seeded lookup rows, and the
+``mv_par_times`` materialized view are produced by ``schema.sql``.
 """
 
 from __future__ import annotations
@@ -24,7 +25,7 @@ from .lookups import (
     TrackCondition,
 )
 from .meetings import DayNight, MeetingStatus, RaceMeeting
-from .pars import MvParTimes, mv_par_times_table
+from .pars import mv_par_times_table
 from .people import Person
 from .races import Race
 from .runners import Runner
@@ -61,8 +62,7 @@ __all__ = [
     # Workflow enums
     "DayNight",
     "MeetingStatus",
-    # Materialized view
-    "MvParTimes",
+    # Materialized view (Core Table only)
     "mv_par_times_table",
     # Logging
     "LogLevel",
