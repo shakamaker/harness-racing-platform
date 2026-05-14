@@ -1,0 +1,333 @@
+// Harness Racing Platform — ERD (dbdiagram.io DBML).
+// Source of truth: sql/schema.sql.
+
+Project harness_racing {
+  database_type: 'PostgreSQL'
+  Note: '3NF schema: lookup-tables-for-everything. Display times projected at app layer; mv_par_times replaces track_pars.'
+}
+
+// ---------------------------------------------------------------------------
+// Enums (workflow state machines only — domain categoricals are lookup FKs)
+// ---------------------------------------------------------------------------
+
+Enum meeting_status {
+  PENDING_DOWNLOAD
+  DOWNLOADED
+  PARSED
+  FAILED
+}
+
+Enum day_night {
+  DAY
+  NIGHT
+  TWILIGHT
+  UNKNOWN
+}
+
+Enum log_level {
+  DEBUG
+  INFO
+  WARNING
+  ERROR
+  CRITICAL
+}
+
+Enum pipeline_stage {
+  SCRAPE
+  PARSE
+  TRANSFORM
+  API
+}
+
+// ---------------------------------------------------------------------------
+// Lookups
+// ---------------------------------------------------------------------------
+
+Table countries {
+  id int [pk, increment]
+  code varchar(8) [unique, not null]
+  name varchar(64) [not null]
+  created_at timestamptz [not null, default: `now()`]
+}
+
+Table states {
+  id int [pk, increment]
+  code varchar(8) [not null]
+  country_id int [not null, ref: > countries.id]
+  name varchar(64) [not null]
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (code, country_id) [unique]
+  }
+}
+
+Table surfaces {
+  id int [pk, increment]
+  name varchar(32) [unique, not null]
+}
+
+Table track_conditions {
+  id int [pk, increment]
+  name varchar(32) [unique, not null]
+}
+
+Table race_gaits {
+  id int [pk, increment]
+  name varchar(32) [unique, not null]
+}
+
+Table start_types {
+  id int [pk, increment]
+  name varchar(32) [unique, not null]
+}
+
+Table race_classes {
+  id int [pk, increment]
+  name varchar(64) [unique, not null]
+}
+
+Table age_classes {
+  id int [pk, increment]
+  name varchar(64) [unique, not null]
+}
+
+Table race_types {
+  id int [pk, increment]
+  name varchar(64) [unique, not null]
+}
+
+Table horse_sexes {
+  id int [pk, increment]
+  code varchar(4) [unique, not null]
+  name varchar(32) [not null]
+}
+
+Table stewards_codes {
+  id int [pk, increment]
+  code varchar(16) [unique, not null]
+  description varchar(255)
+}
+
+// ---------------------------------------------------------------------------
+// Core entities
+// ---------------------------------------------------------------------------
+
+Table race_tracks {
+  id int [pk, increment]
+  track_name varchar(128) [not null]
+  state_id int [not null, ref: > states.id]
+  surface_id int [ref: > surfaces.id]
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (track_name, state_id) [unique]
+    state_id
+  }
+}
+
+Table race_meetings {
+  id int [pk, increment]
+  meeting_code varchar(32) [unique, not null]
+  track_id int [not null, ref: > race_tracks.id]
+  meeting_date date [not null]
+  day_night day_night [not null, default: 'UNKNOWN']
+  meeting_url varchar(512)
+  html_path varchar(512)
+  status meeting_status [not null, default: 'PENDING_DOWNLOAD']
+  scraped_at timestamptz
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    meeting_date
+    track_id
+    status
+  }
+}
+
+Table races {
+  id int [pk, increment]
+  meeting_id int [not null, ref: > race_meetings.id]
+  race_number int [not null]
+  race_name varchar(255)
+  distance_m int
+  race_type_id int [ref: > race_types.id]
+  race_gait_id int [ref: > race_gaits.id]
+  start_type_id int [ref: > start_types.id]
+  race_class_id int [ref: > race_classes.id]
+  age_class_id int [ref: > age_classes.id]
+  race_purse numeric(12,2)
+  track_condition_id int [ref: > track_conditions.id]
+  race_time_str text
+  is_final bool [not null, default: true]
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (meeting_id, race_number) [unique]
+    (race_gait_id, start_type_id, distance_m)
+  }
+}
+
+Table race_times {
+  race_id int [pk, ref: > races.id]
+  gross_time_s numeric(8,3)
+  lead_time_s numeric(8,3)
+  mile_rate_s numeric(8,3)
+  q1_s numeric(8,3)
+  q2_s numeric(8,3)
+  q3_s numeric(8,3)
+  q4_s numeric(8,3)
+  margin1 numeric(6,3)
+  margin2 numeric(6,3)
+  created_at timestamptz [not null, default: `now()`]
+  Note: 'first_half / last_half / display strings are projected at app layer.'
+}
+
+Table persons {
+  id int [pk, increment]
+  name varchar(128) [not null]
+  link_token varchar(64) [unique, not null]
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    name
+  }
+  Note: 'Unified trainer + driver. runners.trainer_id and runners.driver_id both FK here.'
+}
+
+Table horses {
+  horse_id int [pk]
+  horse_name varchar(128) [not null]
+  sex_id int [ref: > horse_sexes.id]
+  foaled smallint
+  sire_id int [ref: > horses.horse_id]
+  dam_id int [ref: > horses.horse_id]
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    horse_name
+  }
+  Note: 'horse_id is the upstream harness.org.au id, not autoincrement.'
+}
+
+Table runners {
+  id int [pk, increment]
+  race_id int [not null, ref: > races.id]
+  horse_id int [not null, ref: > horses.horse_id]
+  runner_number int
+  barrier int
+  barrier_raw varchar(8)
+  trainer_id int [ref: > persons.id]
+  driver_id int [ref: > persons.id]
+  finish_position int
+  raw_margin varchar(32)
+  adjusted_margin numeric(6,3)
+  null_run bool [not null, default: false]
+  scratched bool [not null, default: false]
+  stake numeric(12,2)
+  raw_price varchar(32)
+  starting_price numeric(8,2)
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (race_id, horse_id) [unique]
+  }
+}
+
+Table stewards_comments {
+  runner_id int [pk, ref: > runners.id]
+  full_text text
+  created_at timestamptz [not null, default: `now()`]
+}
+
+Table stewards_comment_codes {
+  runner_id int [ref: > stewards_comments.runner_id]
+  code_id int [ref: > stewards_codes.id]
+
+  indexes {
+    (runner_id, code_id) [pk]
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Logging
+// ---------------------------------------------------------------------------
+
+Table pipeline_log {
+  id bigint [pk, increment]
+  ts timestamptz [not null, default: `now()`]
+  stage pipeline_stage [not null]
+  agent varchar(32) [not null]
+  module varchar(128) [not null]
+  action varchar(128) [not null]
+  level log_level [not null, default: 'INFO']
+  meeting_code varchar(32)
+  race_number int
+  horse_id int
+  attempt int [not null, default: 1]
+  latency_ms int
+  outcome varchar(64) [not null]
+  payload_hash varchar(64)
+  payload jsonb
+  stack_trace text
+  offending_html text
+  last_checkpoint varchar(255)
+  triaged bool [not null, default: false]
+
+  indexes {
+    ts
+    (stage, level)
+    meeting_code
+  }
+  Note: 'Unified scrape/parse/error log. Error-only columns are nullable.'
+}
+
+Table scrape_dlq {
+  id bigint [pk, increment]
+  ts timestamptz [not null, default: `now()`]
+  meeting_code varchar(32)
+  payload jsonb
+  error_log_id bigint [ref: > pipeline_log.id]
+  reprocessed bool [not null, default: false]
+  reprocessed_at timestamptz
+}
+
+Table parse_dlq {
+  id bigint [pk, increment]
+  ts timestamptz [not null, default: `now()`]
+  meeting_code varchar(32)
+  race_number int
+  payload jsonb
+  error_log_id bigint [ref: > pipeline_log.id]
+  reprocessed bool [not null, default: false]
+  reprocessed_at timestamptz
+}
+
+// ---------------------------------------------------------------------------
+// Materialized view (read-only binding; not a real table)
+// ---------------------------------------------------------------------------
+
+Table mv_par_times {
+  track_id int [ref: > race_tracks.id]
+  distance_m int
+  race_gait_id int [ref: > race_gaits.id]
+  start_type_id int [ref: > start_types.id]
+  track_condition_id int [ref: > track_conditions.id]
+  race_class_id int [ref: > race_classes.id]
+  age_class_id int [ref: > age_classes.id]
+  par_gross_time_s numeric(8,3)
+  par_lead_time_s numeric(8,3)
+  par_mile_rate_s numeric(8,3)
+  sample_size int
+  computed_at timestamptz
+
+  indexes {
+    (track_id, distance_m, race_gait_id, start_type_id, track_condition_id, race_class_id, age_class_id) [unique]
+    track_id
+  }
+  Note: 'MATERIALIZED VIEW: trimmed-mean (p10-p90) of times per grouping. REFRESH CONCURRENTLY supported via unique index. Replaces old track_pars table.'
+}
