@@ -1,16 +1,4 @@
-"""Pydantic v2 DTOs emitted by the parser (CLAUDE.md §4.2.4).
-
-These intentionally mirror the SQL schema in ``sql/shit_schema.sql`` so the
-JSON snapshot can be replayed into the ORM once Agent 3 lands it. Keep
-serialisation simple — ``BaseModel.model_dump(mode="json")`` produces the
-shape the database lane consumes.
-
-Idempotency keys (per spec):
-
-* meeting: ``meeting_code``
-* race:    ``(meeting_code, race_number)``
-* runner:  ``(meeting_code, race_number, horse_id)``
-"""
+"""Pydantic v2 DTOs emitted by the parser."""
 
 from __future__ import annotations
 
@@ -103,7 +91,7 @@ class RaceDTO(_BaseDTO):
     race_name: str | None = None
     race_time: str | None = None
     """Local clock time of the race (e.g. ``"5:45pm"``)."""
-    race_distance_m: int | None = None
+    distance_m: int | None = None
     race_type: str | None = None
     """e.g. ``"PBD/NR"``, ``"RBD"``, ``"FFA"`` — derived from the conditions text."""
     class_name: str | None = None
