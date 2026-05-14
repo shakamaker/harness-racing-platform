@@ -30,3 +30,4 @@ packages = ["src/harness_parser"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]
