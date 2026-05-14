@@ -6,7 +6,7 @@ from datetime import datetime
 from typing import Any
 
 from ..logs import LogLevel, PipelineStage
-from ._base import BaseSchema
+from ._base import BaseSchema, MeetingCode
 
 
 class PipelineLogCreate(BaseSchema):
@@ -15,7 +15,7 @@ class PipelineLogCreate(BaseSchema):
     module: str
     action: str
     level: LogLevel = LogLevel.INFO
-    meeting_code: str | None = None
+    meeting_code: MeetingCode | None = None
     race_number: int | None = None
     horse_id: int | None = None
     attempt: int = 1
@@ -36,7 +36,7 @@ class PipelineLogRead(BaseSchema):
     module: str
     action: str
     level: LogLevel
-    meeting_code: str | None
+    meeting_code: MeetingCode | None
     race_number: int | None
     horse_id: int | None
     attempt: int
@@ -53,7 +53,7 @@ class PipelineLogRead(BaseSchema):
 class DLQItemRead(BaseSchema):
     id: int
     ts: datetime
-    meeting_code: str | None
+    meeting_code: MeetingCode | None
     race_number: int | None = None
     payload: dict[str, Any] | None
     error_log_id: int | None

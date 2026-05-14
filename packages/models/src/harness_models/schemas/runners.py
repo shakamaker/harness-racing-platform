@@ -2,10 +2,16 @@
 
 from __future__ import annotations
 
+import re
 from datetime import datetime
 from decimal import Decimal
 
-from ._base import BaseSchema
+from pydantic import field_validator, model_validator
+
+from ._base import BaseSchema, quantize_money, quantize_time
+
+
+_BARRIER_LEADING_INT = re.compile(r"^[A-Za-z]*(\d+)")
 
 
 class RunnerCreate(BaseSchema):
@@ -24,6 +30,33 @@ class RunnerCreate(BaseSchema):
     stake: Decimal | None = None
     raw_price: str | None = None
     starting_price: Decimal | None = None
+
+    @field_validator("stake", "starting_price", mode="before")
+    @classmethod
+    def _quantise_money(cls, v: object) -> Decimal | None:
+        return quantize_money(v)
+
+    @field_validator("adjusted_margin", mode="before")
+    @classmethod
+    def _quantise_time(cls, v: object) -> Decimal | None:
+        return quantize_time(v)
+
+    @model_validator(mode="after")
+    def _barrier_consistency(self) -> "RunnerCreate":
+        if self.barrier is not None and self.barrier_raw is not None:
+            m = _BARRIER_LEADING_INT.match(self.barrier_raw)
+            if m is None:
+                raise ValueError(
+                    f"barrier_raw={self.barrier_raw!r} has no leading integer "
+                    f"but barrier={self.barrier} was supplied"
+                )
+            extracted = int(m.group(1))
+            if extracted != self.barrier:
+                raise ValueError(
+                    f"barrier ({self.barrier}) disagrees with leading integer of "
+                    f"barrier_raw ({self.barrier_raw!r} -> {extracted})"
+                )
+        return self
 
 
 class RunnerRead(BaseSchema):

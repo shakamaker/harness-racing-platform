@@ -5,11 +5,11 @@ from __future__ import annotations
 from datetime import date, datetime
 
 from ..meetings import DayNight, MeetingStatus
-from ._base import BaseSchema
+from ._base import BaseSchema, MeetingCode
 
 
 class MeetingCreate(BaseSchema):
-    meeting_code: str
+    meeting_code: MeetingCode
     track_id: int
     meeting_date: date
     day_night: DayNight = DayNight.UNKNOWN
@@ -28,7 +28,7 @@ class MeetingUpdate(BaseSchema):
 
 class MeetingRead(BaseSchema):
     id: int
-    meeting_code: str
+    meeting_code: MeetingCode
     track_id: int
     meeting_date: date
     day_night: DayNight
