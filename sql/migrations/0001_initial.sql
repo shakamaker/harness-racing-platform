@@ -1,7 +1,7 @@
 -- Baseline migration 0001_initial — verbatim copy of sql/schema.sql.
 -- Apply against an empty PostgreSQL 16 database. See sql/schema.sql for the
--- authoritative source; this file MUST stay byte-identical with that file
--- below the header (CI enforces this).
+-- authoritative source.
+-- Byte-identical mirror of sql/schema.sql below this header.
 --
 -- Design notes:
 --   * Every domain/categorical column is a FK to a lookup table (states,
@@ -9,15 +9,16 @@
 --     race_types, track_conditions, horse_sexes, stewards_codes).
 --   * Workflow state machines stay as PG ENUMs because they are tightly
 --     coupled to application code paths.
---   * All time fields are NUMERIC(8,3) seconds. Display strings (SS:mmm)
---     are projected at the Pydantic/ORM layer via time_utils, never stored.
---   * The legacy track_pars table is replaced by mv_par_times, a
---     CONCURRENTLY-refreshable materialized view that computes trimmed mean
---     (p10–p90) of gross_time / lead_time / mile_rate per grouping.
+--   * Sectionals + gross + lead + mile-rate are NUMERIC(8,3) seconds;
+--     display strings are projected at the Pydantic layer. Clock-time-of-day
+--     printed on the source card is kept as races.race_time_str because it
+--     has no canonical numeric form.
+--   * mv_par_times: materialised view, trimmed mean (p10-p90) of gross/lead/
+--     mile-rate per grouping; refresh CONCURRENTLY.
 --   * Scrape/parse/error logs are unified into pipeline_log with a stage
 --     ENUM and nullable error-only columns.
---   * trainers + drivers collapse into persons because many participants
---     fill both roles.
+--   * persons covers both trainers and drivers; the same individual
+--     frequently appears in both roles.
 
 BEGIN;
 
@@ -211,6 +212,8 @@ CREATE TABLE races (
     race_name           VARCHAR(255)   NULL,
     distance_m          INT            NULL,
     race_type_id        INT            NULL,
+    -- Rows with NULL race_gait_id or start_type_id are excluded from par-time
+    -- computation (see WHERE filter on mv_par_times below).
     race_gait_id        INT            NULL,
     start_type_id       INT            NULL,
     race_class_id       INT            NULL,
@@ -285,6 +288,8 @@ CREATE TABLE horses (
     dam_id      INT          NULL,
     created_at  TIMESTAMPTZ  NOT NULL DEFAULT now(),
     updated_at  TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    CONSTRAINT ck_horses_sire_not_self CHECK (sire_id IS NULL OR sire_id <> horse_id),
+    CONSTRAINT ck_horses_dam_not_self  CHECK (dam_id  IS NULL OR dam_id  <> horse_id),
     CONSTRAINT fk_horses_sex
         FOREIGN KEY (sex_id) REFERENCES horse_sexes (id)
         DEFERRABLE INITIALLY IMMEDIATE,
@@ -395,6 +400,7 @@ CREATE TABLE scrape_dlq (
     reprocessed_at  TIMESTAMPTZ NULL,
     CONSTRAINT fk_scrape_dlq_error_log
         FOREIGN KEY (error_log_id) REFERENCES pipeline_log (id)
+        ON DELETE SET NULL
         DEFERRABLE INITIALLY IMMEDIATE
 );
 
@@ -409,6 +415,7 @@ CREATE TABLE parse_dlq (
     reprocessed_at  TIMESTAMPTZ NULL,
     CONSTRAINT fk_parse_dlq_error_log
         FOREIGN KEY (error_log_id) REFERENCES pipeline_log (id)
+        ON DELETE SET NULL
         DEFERRABLE INITIALLY IMMEDIATE
 );
 
@@ -435,9 +442,11 @@ CREATE INDEX ix_horses_dam        ON horses (dam_id)  WHERE dam_id IS NOT NULL;
 
 CREATE INDEX ix_persons_name ON persons (name);
 
+CREATE INDEX ix_runners_horse_id ON runners (horse_id);
 CREATE INDEX ix_runners_trainer ON runners (trainer_id) WHERE trainer_id IS NOT NULL;
 CREATE INDEX ix_runners_driver  ON runners (driver_id)  WHERE driver_id IS NOT NULL;
 
+CREATE INDEX ix_race_tracks_track_name ON race_tracks (track_name);
 CREATE INDEX ix_race_tracks_state ON race_tracks (state_id);
 
 CREATE INDEX ix_pipeline_log_ts          ON pipeline_log (ts DESC);
@@ -521,7 +530,9 @@ SELECT
     AVG(b.mile_rate_s) FILTER (
         WHERE b.mile_rate_s BETWEEN bd.p10_mile AND bd.p90_mile
     )::NUMERIC(8, 3) AS par_mile_rate_s,
-    COUNT(*)::INT    AS sample_size,
+    COUNT(*) FILTER (WHERE b.gross_time_s BETWEEN bd.p10_gross AND bd.p90_gross)::INT AS gross_sample_size,
+    COUNT(*) FILTER (WHERE b.lead_time_s BETWEEN bd.p10_lead AND bd.p90_lead)::INT AS lead_sample_size,
+    COUNT(*) FILTER (WHERE b.mile_rate_s BETWEEN bd.p10_mile AND bd.p90_mile)::INT AS mile_sample_size,
     now()            AS computed_at
 FROM base b
 JOIN bounds bd USING (
