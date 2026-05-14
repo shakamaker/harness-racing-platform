@@ -7,7 +7,7 @@ from enum import Enum
 from typing import TYPE_CHECKING
 
 from sqlalchemy import Enum as SAEnum
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, created_at_col, updated_at_col
@@ -35,15 +35,17 @@ class RaceMeeting(Base):
     __tablename__ = "race_meetings"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    meeting_code: Mapped[str] = mapped_column(unique=True)
-    track_id: Mapped[int] = mapped_column(ForeignKey("race_tracks.id"), index=True)
+    meeting_code: Mapped[str] = mapped_column(String(32), unique=True)
+    track_id: Mapped[int] = mapped_column(
+        ForeignKey("race_tracks.id", ondelete="RESTRICT"), index=True
+    )
     meeting_date: Mapped[date] = mapped_column(index=True)
     day_night: Mapped[DayNight] = mapped_column(
         SAEnum(DayNight, name="day_night", native_enum=True, create_type=False),
         default=DayNight.UNKNOWN,
     )
-    meeting_url: Mapped[str | None] = mapped_column(default=None)
-    html_path: Mapped[str | None] = mapped_column(default=None)
+    meeting_url: Mapped[str | None] = mapped_column(String(512), default=None)
+    html_path: Mapped[str | None] = mapped_column(String(512), default=None)
     status: Mapped[MeetingStatus] = mapped_column(
         SAEnum(MeetingStatus, name="meeting_status", native_enum=True, create_type=False),
         default=MeetingStatus.PENDING_DOWNLOAD,

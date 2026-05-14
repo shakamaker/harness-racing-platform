@@ -30,8 +30,6 @@ class StewardsComment(Base):
 
 
 class StewardsCommentCode(Base):
-    """Junction row between a runner's stewards comment and a steward code."""
-
     __tablename__ = "stewards_comment_codes"
 
     runner_id: Mapped[int] = mapped_column(

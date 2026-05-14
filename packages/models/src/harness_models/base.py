@@ -25,7 +25,6 @@ class Base(DeclarativeBase):
     metadata = MetaData(naming_convention=NAMING_CONVENTION)
 
 
-# Reusable typed column aliases keep the model files terse and consistent.
 created_at_col = Annotated[
     datetime,
     mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now()),

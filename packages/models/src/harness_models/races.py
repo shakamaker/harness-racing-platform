@@ -5,7 +5,7 @@ from __future__ import annotations
 from decimal import Decimal
 from typing import TYPE_CHECKING
 
-from sqlalchemy import ForeignKey, UniqueConstraint
+from sqlalchemy import ForeignKey, Numeric, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, created_at_col, updated_at_col
@@ -24,13 +24,17 @@ class Race(Base):
     )
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    meeting_id: Mapped[int] = mapped_column(ForeignKey("race_meetings.id"))
+    meeting_id: Mapped[int] = mapped_column(
+        ForeignKey("race_meetings.id", ondelete="RESTRICT")
+    )
     race_number: Mapped[int]
-    race_name: Mapped[str | None] = mapped_column(default=None)
+    race_name: Mapped[str | None] = mapped_column(String(255), default=None)
     distance_m: Mapped[int | None] = mapped_column(default=None)
     race_type_id: Mapped[int | None] = mapped_column(
         ForeignKey("race_types.id"), default=None
     )
+    # Rows with NULL race_gait_id or start_type_id are excluded from par-time
+    # computation (mv_par_times filters them out).
     race_gait_id: Mapped[int | None] = mapped_column(
         ForeignKey("race_gaits.id"), default=None
     )
@@ -43,7 +47,7 @@ class Race(Base):
     age_class_id: Mapped[int | None] = mapped_column(
         ForeignKey("age_classes.id"), default=None
     )
-    race_purse: Mapped[Decimal | None] = mapped_column(default=None)
+    race_purse: Mapped[Decimal | None] = mapped_column(Numeric(12, 2), default=None)
     track_condition_id: Mapped[int | None] = mapped_column(
         ForeignKey("track_conditions.id"), default=None
     )

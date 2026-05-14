@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sqlalchemy import ForeignKey
+from sqlalchemy import CheckConstraint, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, created_at_col, updated_at_col
@@ -16,11 +16,17 @@ if TYPE_CHECKING:
 
 class Horse(Base):
     __tablename__ = "horses"
+    __table_args__ = (
+        CheckConstraint(
+            "sire_id IS NULL OR sire_id <> horse_id", name="ck_horses_sire_not_self"
+        ),
+        CheckConstraint(
+            "dam_id IS NULL OR dam_id <> horse_id", name="ck_horses_dam_not_self"
+        ),
+    )
 
-    # horse_id is NOT autoincrement — it's the upstream id used as the
-    # cross-meeting key for form lookups. Insertions must supply it.
     horse_id: Mapped[int] = mapped_column(primary_key=True, autoincrement=False)
-    horse_name: Mapped[str] = mapped_column(index=True)
+    horse_name: Mapped[str] = mapped_column(String(128), index=True)
     sex_id: Mapped[int | None] = mapped_column(ForeignKey("horse_sexes.id"), default=None)
     foaled: Mapped[int | None] = mapped_column(default=None)
     sire_id: Mapped[int | None] = mapped_column(ForeignKey("horses.horse_id"), default=None)
