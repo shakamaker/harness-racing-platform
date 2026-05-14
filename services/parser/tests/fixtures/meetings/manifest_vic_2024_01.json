@@ -1,0 +1,35 @@
+[
+  {
+    "meeting_code": "GE310124",
+    "track_name": "Geelong",
+    "state": "vic",
+    "meeting_date": "2024-01-31",
+    "day_night": "NIGHT",
+    "meeting_href": "/racing/fields/race-fields/?mc=GE310124",
+    "html_path": "raw_html\\vic\\2024\\GE310124.html",
+    "fixture_path": "services\\parser\\tests\\fixtures\\meetings\\meeting_vic_GE310124.html",
+    "bytes": 240952
+  },
+  {
+    "meeting_code": "ML300124",
+    "track_name": "Mildura",
+    "state": "vic",
+    "meeting_date": "2024-01-30",
+    "day_night": "NIGHT",
+    "meeting_href": "/racing/fields/race-fields/?mc=ML300124",
+    "html_path": "raw_html\\vic\\2024\\ML300124.html",
+    "fixture_path": "services\\parser\\tests\\fixtures\\meetings\\meeting_vic_ML300124.html",
+    "bytes": 248639
+  },
+  {
+    "meeting_code": "MX290124",
+    "track_name": "Melton",
+    "state": "vic",
+    "meeting_date": "2024-01-29",
+    "day_night": "DAY",
+    "meeting_href": "/racing/fields/race-fields/?mc=MX290124",
+    "html_path": "raw_html\\vic\\2024\\MX290124.html",
+    "fixture_path": "services\\parser\\tests\\fixtures\\meetings\\meeting_vic_MX290124.html",
+    "bytes": 228481
+  }
+]

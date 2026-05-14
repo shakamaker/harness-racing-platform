@@ -1,0 +1,29 @@
+[
+  {
+    "meeting_code": "GE310124",
+    "track_name": "Geelong",
+    "state": "vic",
+    "meeting_date": "2024-01-31",
+    "day_night": "NIGHT",
+    "race_count": 10,
+    "runner_count": 84
+  },
+  {
+    "meeting_code": "ML300124",
+    "track_name": "Mildura",
+    "state": "vic",
+    "meeting_date": "2024-01-30",
+    "day_night": "NIGHT",
+    "race_count": 10,
+    "runner_count": 89
+  },
+  {
+    "meeting_code": "MX290124",
+    "track_name": "Melton",
+    "state": "vic",
+    "meeting_date": "2024-01-29",
+    "day_night": "DAY",
+    "race_count": 9,
+    "runner_count": 80
+  }
+]

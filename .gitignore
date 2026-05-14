@@ -31,6 +31,14 @@ test-results/
 # Scraper output (raw HTML cache — not committed)
 raw_html/
 .cookies/
+.scraper_cookies/
+
+# Parsed fixture output (regenerable from raw HTML)
+data/parsed/
+
+# Random screenshots / image dumps
+/image.jpg
+/image.png
 
 # Env / secrets
 .env
