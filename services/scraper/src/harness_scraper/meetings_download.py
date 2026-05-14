@@ -165,6 +165,9 @@ async def run_meeting_downloads(
     year manifests over time.
     """
     raw_dir.mkdir(parents=True, exist_ok=True)
+    # fetch_meeting_html persists to ``settings.raw_html_dir``; route it through
+    # the CLI-provided directory so we don't drop files in CWD/raw_html.
+    settings = settings.model_copy(update={"raw_html_dir": raw_dir})
     rate_limiter = TokenBucket(rate_per_minute=settings.rate_limit_rpm)
     worker_count = max(1, workers or settings.workers_per_state)
 
