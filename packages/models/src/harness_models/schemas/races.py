@@ -5,7 +5,9 @@ from __future__ import annotations
 from datetime import datetime
 from decimal import Decimal
 
-from ._base import BaseSchema
+from pydantic import field_validator
+
+from ._base import BaseSchema, quantize_money
 from .runners import RunnerRead
 from .times import RaceTimeRead
 
@@ -24,6 +26,11 @@ class RaceCreate(BaseSchema):
     track_condition_id: int | None = None
     race_time_str: str | None = None
     is_final: bool = True
+
+    @field_validator("race_purse", mode="before")
+    @classmethod
+    def _quantise_purse(cls, v: object) -> Decimal | None:
+        return quantize_money(v)
 
 
 class RaceSummary(BaseSchema):

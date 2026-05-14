@@ -5,10 +5,10 @@ from __future__ import annotations
 from datetime import datetime
 from decimal import Decimal
 
-from pydantic import computed_field
+from pydantic import computed_field, field_validator
 
 from ..time_utils import format_ss_ms
-from ._base import BaseSchema
+from ._base import BaseSchema, quantize_time
 
 
 class RaceTimeCreate(BaseSchema):
@@ -22,6 +22,22 @@ class RaceTimeCreate(BaseSchema):
     q4_s: Decimal | None = None
     margin1: Decimal | None = None
     margin2: Decimal | None = None
+
+    @field_validator(
+        "gross_time_s",
+        "lead_time_s",
+        "mile_rate_s",
+        "q1_s",
+        "q2_s",
+        "q3_s",
+        "q4_s",
+        "margin1",
+        "margin2",
+        mode="before",
+    )
+    @classmethod
+    def _quantise(cls, v: object) -> Decimal | None:
+        return quantize_time(v)
 
 
 class RaceTimeRead(BaseSchema):

@@ -169,7 +169,7 @@ def _parse_race_header(table: Node) -> dict:
         "race_number": race_number,
         "race_time": race_time,
         "race_name": race_name,
-        "race_distance_m": distance_m,
+        "distance_m": distance_m,
         "conditions": conditions,
         "is_final": is_final,
     }
@@ -490,14 +490,6 @@ def _parse_race_times(table: Node | None) -> RaceTimesDTO | None:
                 break
     if not data:
         return None
-    q1 = data.get("q1_s")
-    q2 = data.get("q2_s")
-    q3 = data.get("q3_s")
-    q4 = data.get("q4_s")
-    if q1 is not None and q2 is not None:
-        data["first_half_s"] = round(q1 + q2, 3)
-    if q3 is not None and q4 is not None:
-        data["second_half_s"] = round(q3 + q4, 3)
     return RaceTimesDTO(**data)
 
 
@@ -581,7 +573,7 @@ def parse_results_html(
                 race_number=info["race_number"],
                 race_name=info["race_name"],
                 race_time=info["race_time"],
-                race_distance_m=info["race_distance_m"],
+                distance_m=info["distance_m"],
                 race_purse=cond["race_purse"],
                 class_name=cond["class_name"],
                 age_class=cond["age_class"],

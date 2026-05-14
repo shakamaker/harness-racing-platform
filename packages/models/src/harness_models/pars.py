@@ -1,10 +1,17 @@
-"""Par-times materialized view binding (read-only).
+"""Par-times materialized view binding.
 
-This is NOT a real table — the underlying object is the ``mv_par_times``
-materialized view created by ``sql/schema.sql``. The ORM class binds to it
-purely so query layers can join it like any other entity. SQLAlchemy will not
-emit CREATE/DROP for this Table because ``info["is_view"] = True`` and we use
-``__table__`` instead of declarative ``__tablename__``.
+The underlying object is the ``mv_par_times`` materialized view created by
+``sql/schema.sql``. The Table below exists so the query layer can join it like
+any other entity, but SQLAlchemy must not emit CREATE/DROP for it — schema.sql
+owns the DDL.
+
+We install ``before_create`` / ``before_drop`` event listeners that return
+``False`` so ``Base.metadata.create_all()`` / ``drop_all()`` skip this Table.
+
+No declarative ORM class is exposed for this view: an ORM class over a
+multi-column nullable PK is an identity-map hazard (two rows with NULLs in
+filter columns collide on identity). Queries should use Core ``select()``
+against ``mv_par_times_table`` and project to ``ParTimesRead``.
 
 Refresh is the API service's responsibility (nightly cron):
 
@@ -13,18 +20,9 @@ Refresh is the API service's responsibility (nightly cron):
 
 from __future__ import annotations
 
-from datetime import datetime
-from decimal import Decimal
-from typing import TYPE_CHECKING
-
-from sqlalchemy import Column, DateTime, Integer, Numeric, Table
-from sqlalchemy.orm import Mapped, relationship
+from sqlalchemy import Column, DateTime, Integer, Numeric, Table, event
 
 from .base import Base
-
-if TYPE_CHECKING:
-    from .lookups import AgeClass, RaceClass, RaceGait, StartType, TrackCondition
-    from .tracks import RaceTrack
 
 
 mv_par_times_table = Table(
@@ -40,60 +38,21 @@ mv_par_times_table = Table(
     Column("par_gross_time_s", Numeric(8, 3)),
     Column("par_lead_time_s", Numeric(8, 3)),
     Column("par_mile_rate_s", Numeric(8, 3)),
-    Column("sample_size", Integer),
+    Column("gross_sample_size", Integer),
+    Column("lead_sample_size", Integer),
+    Column("mile_sample_size", Integer),
     Column("computed_at", DateTime(timezone=True)),
-    info={"is_view": True},
 )
 
 
-class MvParTimes(Base):
-    """Read-only ORM binding to ``mv_par_times``."""
-
-    __table__ = mv_par_times_table
-
-    track_id: Mapped[int]
-    distance_m: Mapped[int]
-    race_gait_id: Mapped[int]
-    start_type_id: Mapped[int]
-    track_condition_id: Mapped[int | None]
-    race_class_id: Mapped[int | None]
-    age_class_id: Mapped[int | None]
-    par_gross_time_s: Mapped[Decimal | None]
-    par_lead_time_s: Mapped[Decimal | None]
-    par_mile_rate_s: Mapped[Decimal | None]
-    sample_size: Mapped[int]
-    computed_at: Mapped[datetime]
-
-    track: Mapped["RaceTrack"] = relationship(
-        primaryjoin="MvParTimes.track_id == RaceTrack.id",
-        foreign_keys=[mv_par_times_table.c.track_id],
-        viewonly=True,
-    )
-    race_gait: Mapped["RaceGait"] = relationship(
-        primaryjoin="MvParTimes.race_gait_id == RaceGait.id",
-        foreign_keys=[mv_par_times_table.c.race_gait_id],
-        viewonly=True,
-    )
-    start_type: Mapped["StartType"] = relationship(
-        primaryjoin="MvParTimes.start_type_id == StartType.id",
-        foreign_keys=[mv_par_times_table.c.start_type_id],
-        viewonly=True,
-    )
-    track_condition: Mapped["TrackCondition | None"] = relationship(
-        primaryjoin="MvParTimes.track_condition_id == TrackCondition.id",
-        foreign_keys=[mv_par_times_table.c.track_condition_id],
-        viewonly=True,
-    )
-    race_class: Mapped["RaceClass | None"] = relationship(
-        primaryjoin="MvParTimes.race_class_id == RaceClass.id",
-        foreign_keys=[mv_par_times_table.c.race_class_id],
-        viewonly=True,
-    )
-    age_class: Mapped["AgeClass | None"] = relationship(
-        primaryjoin="MvParTimes.age_class_id == AgeClass.id",
-        foreign_keys=[mv_par_times_table.c.age_class_id],
-        viewonly=True,
-    )
+@event.listens_for(mv_par_times_table, "before_create")
+def _skip_view_create(target, connection, **kw):  # type: ignore[no-untyped-def]
+    return False
 
 
-__all__ = ["MvParTimes", "mv_par_times_table"]
+@event.listens_for(mv_par_times_table, "before_drop")
+def _skip_view_drop(target, connection, **kw):  # type: ignore[no-untyped-def]
+    return False
+
+
+__all__ = ["mv_par_times_table"]

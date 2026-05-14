@@ -5,7 +5,7 @@ from __future__ import annotations
 from decimal import Decimal
 from typing import TYPE_CHECKING
 
-from sqlalchemy import ForeignKey, UniqueConstraint
+from sqlalchemy import ForeignKey, Numeric, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, created_at_col, updated_at_col
@@ -24,24 +24,23 @@ class Runner(Base):
     )
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    race_id: Mapped[int] = mapped_column(ForeignKey("races.id"))
-    horse_id: Mapped[int] = mapped_column(ForeignKey("horses.horse_id"))
+    race_id: Mapped[int] = mapped_column(ForeignKey("races.id", ondelete="RESTRICT"))
+    horse_id: Mapped[int] = mapped_column(
+        ForeignKey("horses.horse_id", ondelete="RESTRICT")
+    )
     runner_number: Mapped[int | None] = mapped_column(default=None)
-    # barrier holds the numeric prefix (e.g. 5 from "Fr5"); barrier_raw keeps the
-    # full source token ("Fr5", "1A", "SR", "FP") so analytics can recover row
-    # and front/back-row context that the integer column collapses away.
     barrier: Mapped[int | None] = mapped_column(default=None)
-    barrier_raw: Mapped[str | None] = mapped_column(default=None)
+    barrier_raw: Mapped[str | None] = mapped_column(String(8), default=None)
     trainer_id: Mapped[int | None] = mapped_column(ForeignKey("persons.id"), default=None)
     driver_id: Mapped[int | None] = mapped_column(ForeignKey("persons.id"), default=None)
     finish_position: Mapped[int | None] = mapped_column(default=None)
-    raw_margin: Mapped[str | None] = mapped_column(default=None)
-    adjusted_margin: Mapped[Decimal | None] = mapped_column(default=None)
+    raw_margin: Mapped[str | None] = mapped_column(String(32), default=None)
+    adjusted_margin: Mapped[Decimal | None] = mapped_column(Numeric(6, 3), default=None)
     null_run: Mapped[bool] = mapped_column(default=False)
     scratched: Mapped[bool] = mapped_column(default=False)
-    stake: Mapped[Decimal | None] = mapped_column(default=None)
-    raw_price: Mapped[str | None] = mapped_column(default=None)
-    starting_price: Mapped[Decimal | None] = mapped_column(default=None)
+    stake: Mapped[Decimal | None] = mapped_column(Numeric(12, 2), default=None)
+    raw_price: Mapped[str | None] = mapped_column(String(32), default=None)
+    starting_price: Mapped[Decimal | None] = mapped_column(Numeric(8, 2), default=None)
     created_at: Mapped[created_at_col]
     updated_at: Mapped[updated_at_col]
 

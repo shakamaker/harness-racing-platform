@@ -66,7 +66,7 @@ class TestRaceFields:
         r = geelong_meeting.races[0]
         assert r.race_number == 1
         assert r.race_name == "HARAS DES TROTTEURS TROT (1ST HEAT)"
-        assert r.race_distance_m == 2100
+        assert r.distance_m == 2100
         assert r.race_purse == 4500.0
         assert r.race_gait == "TROTTERS"
         assert r.start_type == "Mobile"

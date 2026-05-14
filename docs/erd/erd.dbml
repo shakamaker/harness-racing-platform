@@ -122,6 +122,7 @@ Table race_tracks {
 
   indexes {
     (track_name, state_id) [unique]
+    track_name
     state_id
   }
 }
@@ -235,6 +236,7 @@ Table runners {
 
   indexes {
     (race_id, horse_id) [unique]
+    horse_id
   }
 }
 
@@ -322,7 +324,9 @@ Table mv_par_times {
   par_gross_time_s numeric(8,3)
   par_lead_time_s numeric(8,3)
   par_mile_rate_s numeric(8,3)
-  sample_size int
+  gross_sample_size int
+  lead_sample_size int
+  mile_sample_size int
   computed_at timestamptz
 
   indexes {
