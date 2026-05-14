@@ -46,3 +46,26 @@ def test_meeting_dates_parse_canonical_format() -> None:
 
 def test_empty_listing_returns_empty_list() -> None:
     assert extract_meetings("<html><body>no table</body></html>", state="vic") == []
+
+
+def test_extract_scans_all_meetinglistfull_tables() -> None:
+    """Older listings split meetings across multiple ``meetingListFull``
+    tables (TAB / Non-TAB / Trials). Extractor must scan every table, not
+    just the first. Regression for the 1985-style markup."""
+    html = """
+    <html><body>
+        <table class="meetingListFull"><tr><th>Header only</th></tr></table>
+        <table class="meetingListFull"><tbody>
+            <tr class="fullHeader"><th>Track</th><th>Date</th></tr>
+            <tr><td><a href="?mc=AA010185">Ballarat</a></td>
+                <td>Thu, 31 Jan 1985</td><td>VIC</td><td>Day</td></tr>
+        </tbody></table>
+        <table class="meetingListFull"><tbody>
+            <tr><td><a href="?mc=AA020185">Charlton</a></td>
+                <td>Sun, 27 Jan 1985</td><td>VIC</td><td>Day</td></tr>
+        </tbody></table>
+    </body></html>
+    """
+    meetings = extract_meetings(html, state="vic")
+    codes = {m.meeting_code for m in meetings}
+    assert codes == {"AA010185", "AA020185"}

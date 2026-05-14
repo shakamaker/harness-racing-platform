@@ -36,6 +36,7 @@ packages = ["src/harness_scraper"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+pythonpath = ["src"]
 markers = [
   "network: tests that hit the live harness.org.au site (opt-in)",
 ]

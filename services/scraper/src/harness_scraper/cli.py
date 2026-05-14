@@ -19,13 +19,17 @@ from pathlib import Path
 from typing import cast
 
 from harness_scraper.browser import HarnessBrowser
+from harness_scraper.calendar import run_calendar
 from harness_scraper.fetcher import fetch_meeting_html, fetch_monthly_listing
+from harness_scraper.meetings_download import run_meeting_downloads
 from harness_scraper.logging_setup import configure_logging, get_logger
 from harness_scraper.meetings import extract_meetings
 from harness_scraper.rate_limit import TokenBucket
 from harness_scraper.settings import ScraperSettings, get_settings
 from harness_scraper.urls import (
     ALL_STATES,
+    YEAR_MAX,
+    YEAR_MIN,
     MonthlyResultsQuery,
     State,
     build_monthly_results_url,
@@ -57,6 +61,75 @@ def _build_parser() -> argparse.ArgumentParser:
     li.add_argument("--state", required=True, choices=ALL_STATES)
     li.add_argument("--year", type=int, required=True)
     li.add_argument("--month", type=int, required=True)
+
+    cal = sub.add_parser(
+        "calendar",
+        help="Enumerate monthly listings across a year range for one state (resumable).",
+    )
+    cal.add_argument("--state", required=True, choices=ALL_STATES)
+    cal.add_argument("--year-start", type=int, default=YEAR_MIN)
+    cal.add_argument("--year-end", type=int, default=YEAR_MAX)
+    cal.add_argument("--month-start", type=int, default=1, help="First month in year-start (1-12)")
+    cal.add_argument("--month-end", type=int, default=12, help="Last month in year-end (1-12)")
+    cal.add_argument(
+        "--raw-dir",
+        type=Path,
+        default=Path("./raw_html"),
+        help="Directory for raw listing HTML (default ./raw_html, listings live under listings/{state}/{year}/{mm}.html).",
+    )
+    cal.add_argument(
+        "--data-dir",
+        type=Path,
+        default=Path("./data"),
+        help="Directory for per-year manifests (default ./data, manifests live under calendar/{state}/{year}.json).",
+    )
+    cal.add_argument(
+        "--refresh",
+        action="store_true",
+        help="Re-fetch every listing even if cached HTML already exists.",
+    )
+
+    md = sub.add_parser(
+        "meetings-download",
+        help=(
+            "Concurrent per-meeting HTML download driven by calendar year manifests "
+            "(CLAUDE.md §4.1.4). Resumable."
+        ),
+    )
+    md.add_argument("--state", required=True, choices=ALL_STATES)
+    md.add_argument("--year-start", type=int, required=True)
+    md.add_argument("--year-end", type=int, required=True)
+    md.add_argument(
+        "--workers",
+        type=int,
+        default=None,
+        help="Concurrent worker count (default: SCRAPER_WORKERS_PER_STATE).",
+    )
+    md.add_argument(
+        "--raw-dir",
+        type=Path,
+        default=Path("./raw_html"),
+    )
+    md.add_argument(
+        "--data-dir",
+        type=Path,
+        default=Path("./data"),
+    )
+    md.add_argument(
+        "--watch",
+        action="store_true",
+        help=(
+            "Long-running mode: re-scan manifests periodically and pick up new "
+            "meetings as the calendar runner publishes them. Exits after "
+            "several idle passes with no new work."
+        ),
+    )
+    md.add_argument(
+        "--poll-seconds",
+        type=float,
+        default=30.0,
+        help="Seconds between manifest re-scans in watch mode.",
+    )
     return p
 
 
@@ -150,6 +223,40 @@ async def _cmd_listing(args: argparse.Namespace, settings: ScraperSettings) -> i
     return 0
 
 
+async def _cmd_meetings_download(args: argparse.Namespace, settings: ScraperSettings) -> int:
+    state = cast(State, args.state)
+    counters = await run_meeting_downloads(
+        state=state,
+        year_start=args.year_start,
+        year_end=args.year_end,
+        settings=settings,
+        raw_dir=args.raw_dir,
+        data_dir=args.data_dir,
+        workers=args.workers,
+        watch=args.watch,
+        poll_seconds=args.poll_seconds,
+    )
+    print(json.dumps(counters, indent=2))
+    return 0
+
+
+async def _cmd_calendar(args: argparse.Namespace, settings: ScraperSettings) -> int:
+    state = cast(State, args.state)
+    summary = await run_calendar(
+        state=state,
+        year_start=args.year_start,
+        year_end=args.year_end,
+        month_start=args.month_start,
+        month_end=args.month_end,
+        settings=settings,
+        raw_dir=args.raw_dir,
+        data_dir=args.data_dir,
+        refresh=args.refresh,
+    )
+    print(json.dumps(summary, indent=2))
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     configure_logging()
     parser = _build_parser()
@@ -161,6 +268,10 @@ def main(argv: list[str] | None = None) -> int:
         return asyncio.run(_cmd_meeting(args, settings))
     if args.cmd == "listing":
         return asyncio.run(_cmd_listing(args, settings))
+    if args.cmd == "calendar":
+        return asyncio.run(_cmd_calendar(args, settings))
+    if args.cmd == "meetings-download":
+        return asyncio.run(_cmd_meetings_download(args, settings))
     parser.error(f"unknown command {args.cmd}")
     return 2  # pragma: no cover
 
