@@ -1,5 +1,20 @@
 name: harness-racing-platform
 
+# Local-dev compose. Hardening rationale:
+#   - Postgres is bound to 127.0.0.1 only — a coffee-shop LAN must not reach
+#     this port. Override with COMPOSE_BIND_ADDR if you genuinely need the
+#     port published to other hosts (and then put it behind a firewall).
+#   - no-new-privileges blocks setuid escalation inside the container.
+#   - Capabilities are dropped to the minimum Postgres actually needs.
+#   - tmpfs gives the running container a writable /tmp without persisting
+#     anything to the volume.
+#   - Resource limits prevent a runaway query from starving the dev laptop.
+#   - The default password is for development only and is a deliberately
+#     weak placeholder — never reuse this credential anywhere else, and do
+#     not deploy this compose file to a shared host.
+
+x-bind-addr: &bind_addr "${COMPOSE_BIND_ADDR:-127.0.0.1}"
+
 services:
   postgres:
     image: postgres:16
@@ -8,14 +23,39 @@ services:
       POSTGRES_PASSWORD: harness_dev
       POSTGRES_DB: harness
     ports:
-      - "5432:5432"
+      - "${COMPOSE_BIND_ADDR:-127.0.0.1}:5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    tmpfs:
+      - /tmp
+      - /run
+      - /var/run/postgresql
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      # Postgres needs these to chown the data directory on first start and
+      # to switch from root -> postgres user. Everything else stays dropped.
+      - CHOWN
+      - DAC_READ_SEARCH
+      - FOWNER
+      - SETGID
+      - SETUID
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2g
+        reservations:
+          cpus: "0.25"
+          memory: 256m
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U harness -d harness"]
       interval: 5s
       timeout: 5s
       retries: 10
+    restart: unless-stopped
 
 volumes:
   pgdata:

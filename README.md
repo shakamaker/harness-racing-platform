@@ -20,10 +20,17 @@ Full spec: [CLAUDE.md](./CLAUDE.md). Parallel decomposition: [docs/decomposition
 ## Quickstart (dev)
 
 ```bash
-docker compose up -d postgres            # PostgreSQL 16 on :5432
-uv sync                                  # Python deps (workspace)
+cp .env.example .env                     # then edit secrets locally (gitignored)
+pre-commit install                       # local secret/lint guard (one-off)
+docker compose up -d postgres            # PostgreSQL 16, bound to 127.0.0.1:5432
+uv sync --frozen                         # Python deps (workspace), reproducible
 pnpm -C apps/web install                 # Frontend deps
 ```
+
+Postgres is bound to `127.0.0.1` by default — see [`compose.yaml`](./compose.yaml).
+If you need the port reachable from another host (e.g. a containerised CI
+runner) set `COMPOSE_BIND_ADDR=0.0.0.0` explicitly and put the host behind
+a firewall.
 
 ## Branching
 

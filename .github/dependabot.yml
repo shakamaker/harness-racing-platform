@@ -1,0 +1,126 @@
+# Dependabot — opens PRs for vulnerable / outdated dependencies across every
+# ecosystem in the workspace. Pairs with the Trivy filesystem scan in
+# .github/workflows/ci.yml (Trivy catches CVEs at PR time; Dependabot
+# continuously proposes upgrades on a schedule).
+#
+# Security policy:
+#   - github-actions: all third-party actions are pinned to commit SHAs;
+#     Dependabot updates the SHA and rewrites the trailing version comment.
+#   - pip: weekly bumps for the root + every workspace member.
+#   - npm: weekly bumps for apps/web (and any future shared TS package).
+#
+# Group minor + patch bumps together to keep PR noise low; security bumps
+# always raise their own PR regardless of grouping.
+
+version: 2
+
+updates:
+  # ----- GitHub Actions -------------------------------------------------------
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "chore(actions)"
+    groups:
+      actions-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # ----- Python (workspace root + each member) --------------------------------
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "python"
+    commit-message:
+      prefix: "chore(pip)"
+    groups:
+      python-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "pip"
+    directory: "/packages/models"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "python"
+      - "lane:db"
+    commit-message:
+      prefix: "chore(pip,models)"
+
+  - package-ecosystem: "pip"
+    directory: "/services/scraper"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "python"
+      - "lane:scraper"
+    commit-message:
+      prefix: "chore(pip,scraper)"
+
+  - package-ecosystem: "pip"
+    directory: "/services/parser"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "python"
+      - "lane:parser"
+    commit-message:
+      prefix: "chore(pip,parser)"
+
+  - package-ecosystem: "pip"
+    directory: "/services/api"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "python"
+      - "lane:api"
+    commit-message:
+      prefix: "chore(pip,api)"
+
+  # ----- Node / npm (frontend) ------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/apps/web"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "javascript"
+      - "lane:web"
+    commit-message:
+      prefix: "chore(npm,web)"
+    groups:
+      web-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # ----- Docker (compose base images) -----------------------------------------
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "docker"
+    commit-message:
+      prefix: "chore(docker)"

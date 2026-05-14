@@ -1,0 +1,63 @@
+# CODEOWNERS — enforces the matrix defined in docs/file-ownership.md.
+#
+# Cardinal rule (docs/file-ownership.md): one owner per file. PRs touching
+# paths outside their owner's lane are blocked by pr-review-toolkit. This file
+# is GitHub's enforcement mechanism for that rule.
+#
+# Until per-agent GitHub usernames are assigned, every path defaults to the
+# repo owner (@shakamaker). When the five implementer agents are mapped to
+# real GitHub identities, replace @shakamaker on the lane-specific lines with
+# the matching @user / @team handle. Do NOT remove the workspace-level lines
+# at the bottom — those must always require team-lead review.
+
+# Default owner — everything not matched below requires team-lead review.
+*                                       @shakamaker
+
+# ---------------------------------------------------------------------------
+# Agent 1 — Scraper Engineer  (feat/scraper/*)
+# ---------------------------------------------------------------------------
+/services/scraper/                      @shakamaker
+
+# ---------------------------------------------------------------------------
+# Agent 2 — Parser / Transformer Engineer  (feat/parser/*)
+# ---------------------------------------------------------------------------
+/services/parser/                       @shakamaker
+
+# ---------------------------------------------------------------------------
+# Agent 3 — Database Architect  (feat/db/*)  — exclusive schema authority
+# ---------------------------------------------------------------------------
+/packages/models/                       @shakamaker
+/sql/migrations/                        @shakamaker
+/docs/erd/                              @shakamaker
+
+# ---------------------------------------------------------------------------
+# Agent 4 — Backend / SQL-Pro  (feat/api/*)
+# ---------------------------------------------------------------------------
+/services/api/                          @shakamaker
+/sql/queries/                           @shakamaker
+/sql/views/                             @shakamaker
+
+# ---------------------------------------------------------------------------
+# Agent 5 — Frontend Engineer  (feat/web/*)
+# ---------------------------------------------------------------------------
+/apps/web/                              @shakamaker
+
+# ---------------------------------------------------------------------------
+# Workspace-level — team-lead only. Changes require broadcast + approval.
+# ---------------------------------------------------------------------------
+/README.md                              @shakamaker
+/CLAUDE.md                              @shakamaker
+/compose.yaml                           @shakamaker
+/pyproject.toml                         @shakamaker
+/pnpm-workspace.yaml                    @shakamaker
+/.gitignore                             @shakamaker
+/.github/                               @shakamaker
+/.github/workflows/                     @shakamaker
+/.github/CODEOWNERS                     @shakamaker
+/.github/dependabot.yml                 @shakamaker
+/SECURITY.md                            @shakamaker
+/LICENSE                                @shakamaker
+/.pre-commit-config.yaml                @shakamaker
+/docs/decomposition-plan.md             @shakamaker
+/docs/file-ownership.md                 @shakamaker
+/docs/adr/                              @shakamaker

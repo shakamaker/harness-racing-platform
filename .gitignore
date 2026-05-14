@@ -32,10 +32,35 @@ test-results/
 raw_html/
 .cookies/
 
-# Env / secrets
+# Env / secrets — defence-in-depth. pre-commit (gitleaks + detect-secrets)
+# is the primary control; these patterns are the belt to that suspenders.
 .env
 .env.*
 !.env.example
+.envrc
+.direnv/
+secrets/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.kdbx
+.gnupg/
+.aws/credentials
+.gcloud/
+
+# Coverage / test artefacts
+coverage.xml
+.coverage.*
+.tox/
+.nox/
 
 # IDE
 .vscode/
