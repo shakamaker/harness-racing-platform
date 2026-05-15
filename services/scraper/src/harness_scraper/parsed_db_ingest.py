@@ -77,6 +77,21 @@ def _dec(value: float | None) -> Decimal | None:
     return Decimal(str(value))
 
 
+# adjusted_margin column is Numeric(6,3) — max abs value < 1000.
+# Anything ≥ 1000L is a parser false-positive (race codes / placeholders that
+# matched the bare-number regex), not a real margin.
+_MARGIN_MAX = Decimal("999.999")
+
+
+def _clamp_margin(value: float | None) -> Decimal | None:
+    d = _dec(value)
+    if d is None:
+        return None
+    if abs(d) > _MARGIN_MAX:
+        return None
+    return d
+
+
 class LookupCache:
     """Lazy-upsert lookup tables. One instance per ingest run."""
 
@@ -251,7 +266,7 @@ def _upsert_runner(
         "driver_id": driver_id,
         "finish_position": runner.finish_position,
         "raw_margin": runner.raw_margin,
-        "adjusted_margin": _dec(runner.adjusted_margin),
+        "adjusted_margin": _clamp_margin(runner.adjusted_margin),
         "null_run": runner.null_run,
         "scratched": runner.scratched,
         "stake": _dec(runner.stake),
@@ -296,7 +311,7 @@ def ingest_meeting(
             "Run db_ingest (calendar→DB) first."
         )
 
-    counts = {"races": 0, "runners": 0, "race_times": 0}
+    counts = {"races": 0, "runners": 0, "race_times": 0, "runners_skipped": 0}
     for race_dto in meeting.races:
         race_id = _upsert_race(session, meeting_id=row.id, dto=race_dto, cache=cache)
         counts["races"] += 1
@@ -304,8 +319,21 @@ def ingest_meeting(
         if race_dto.times is not None:
             counts["race_times"] += 1
         for runner in race_dto.runners:
-            _upsert_runner(session, race_id=race_id, runner=runner)
-            counts["runners"] += 1
+            # Savepoint per runner so DataError on one row doesn't poison the
+            # transaction holding the rest of the meeting.
+            sp = session.begin_nested()
+            try:
+                _upsert_runner(session, race_id=race_id, runner=runner)
+                sp.commit()
+                counts["runners"] += 1
+            except Exception as exc:  # noqa: BLE001 — we log and skip
+                sp.rollback()
+                counts["runners_skipped"] += 1
+                print(
+                    f"  WARN  {meeting.meeting_code} race={race_dto.race_number} "
+                    f"horse_id={runner.horse_id}: skip runner ({type(exc).__name__}: {exc})",
+                    flush=True,
+                )
 
     row.status = MeetingStatus.PARSED
     session.flush()
@@ -404,6 +432,9 @@ def run_parsed_ingest(
                 totals["races"] += counts["races"]
                 totals["runners"] += counts["runners"]
                 totals["race_times"] += counts["race_times"]
+                totals["runners_skipped"] = totals.get("runners_skipped", 0) + counts.get(
+                    "runners_skipped", 0
+                )
                 per_track[meeting.track_name] += counts["races"]
                 if i % 25 == 0 or i == len(targets):
                     print(
