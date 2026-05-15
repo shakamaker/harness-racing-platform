@@ -33,8 +33,9 @@ raw_html/
 .cookies/
 .scraper_cookies/
 
-# Parsed fixture output (regenerable from raw HTML)
+# Scraped data output (regenerable — calendar JSON, parsed JSON)
 data/parsed/
+data/calendar/
 
 # Random screenshots / image dumps
 /image.jpg

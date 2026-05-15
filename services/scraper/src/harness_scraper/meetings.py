@@ -86,13 +86,15 @@ def extract_meetings(html: str, *, state: State) -> list[MeetingRow]:
     meetings and we should record that as zero rows, not an error.
     """
     tree = HTMLParser(html)
-    table = tree.css_first("table.meetingListFull")
-    if table is None:
+    tables = tree.css("table.meetingListFull")
+    if not tables:
         log.warning("no_meeting_table", state=state, html_bytes=len(html))
         return []
 
     rows: list[MeetingRow] = []
-    for tr in table.css("tr"):
+    seen_codes: set[str] = set()
+    trs = [tr for table in tables for tr in table.css("tr")]
+    for tr in trs:
         # The header row uses <th>; skip anything without an anchor.
         anchor = tr.css_first("a[href*='mc=']")
         if anchor is None:
@@ -131,6 +133,9 @@ def extract_meetings(html: str, *, state: State) -> list[MeetingRow]:
             )
             continue
 
+        if meeting_code in seen_codes:
+            continue
+        seen_codes.add(meeting_code)
         rows.append(
             MeetingRow(
                 meeting_code=meeting_code,
